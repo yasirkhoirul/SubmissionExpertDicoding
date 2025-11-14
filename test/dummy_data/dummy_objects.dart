@@ -1,7 +1,10 @@
 import 'package:ditonton/data/models/movie_table.dart';
+import 'package:ditonton/data/models/tv_model.dart';
+import 'package:ditonton/data/models/tv_response.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
+import 'package:ditonton/domain/entities/tvseries.dart';
 
 final testMovie = Movie(
   adult: false,
@@ -57,3 +60,38 @@ final testMovieMap = {
   'posterPath': 'posterPath',
   'title': 'title',
 };
+
+final listTvEntity = [
+  TvseriesEntity(
+      false,
+      "/2fOKVDoc2O3eZmBZesWPuE5kgPN.jpg",
+      [18, 9648],
+      200875,
+      ["US"],
+      "en",
+      "IT: Welcome to Derry",
+      "In 1962, a couple with their son move to Derry, Maine just as a young boy disappears. With their arrival, very bad things begin to happen in the town.",
+      316.4234,
+      "/nyy3BITeIjviv6PFIXtqvc8i6xi.jpg",
+      "2025-10-26",
+      "IT: Welcome to Derry",
+      7.922,
+      351)
+];
+
+final dummyTVMOdel = TvModel(false,
+      "/2fOKVDoc2O3eZmBZesWPuE5kgPN.jpg",
+      [18, 9648],
+      200875,
+      ["US"],
+      "en",
+      "IT: Welcome to Derry",
+      "In 1962, a couple with their son move to Derry, Maine just as a young boy disappears. With their arrival, very bad things begin to happen in the town.",
+      316.4234,
+      "/nyy3BITeIjviv6PFIXtqvc8i6xi.jpg",
+      "2025-10-26",
+      "IT: Welcome to Derry",
+      7.922,
+      351);
+
+final dummyResonse = TvResponse(1, [dummyTVMOdel]);

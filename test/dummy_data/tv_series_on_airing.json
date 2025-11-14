@@ -1,0 +1,26 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/2fOKVDoc2O3eZmBZesWPuE5kgPN.jpg",
+            "genre_ids": [
+                18,
+                9648
+            ],
+            "id": 200875,
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "IT: Welcome to Derry",
+            "overview": "In 1962, a couple with their son move to Derry, Maine just as a young boy disappears. With their arrival, very bad things begin to happen in the town.",
+            "popularity": 316.4234,
+            "poster_path": "/nyy3BITeIjviv6PFIXtqvc8i6xi.jpg",
+            "first_air_date": "2025-10-26",
+            "name": "IT: Welcome to Derry",
+            "vote_average": 7.922,
+            "vote_count": 351
+        }
+    ]
+}
