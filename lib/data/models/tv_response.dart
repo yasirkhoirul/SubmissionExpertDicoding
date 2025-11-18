@@ -6,15 +6,15 @@ part 'tv_response.g.dart';
 @JsonSerializable()
 class TvResponse extends Equatable{
   final double page;
-  final List<TvModel>? result;
-  TvResponse(this.page, this.result);
+  final List<TvModel>? results;
+  TvResponse(this.page, this.results);
 
   factory TvResponse.fromJson(Map<String,dynamic> json)=> _$TvResponseFromJson(json);
-  Map<String,dynamic> toJson() => _$TvResponseToJson(this);
+
   
   @override
   List<Object?> get props => [
     page,
-    result
+    results
   ];
 }

@@ -1,22 +1,32 @@
+import 'package:ditonton/common/state_enum.dart';
 import 'package:equatable/equatable.dart';
 
 class TvseriesEntity extends Equatable{
-  final bool adult;
-  final String backdrop_path;
-  final List<int> genre_ids;
-  final double id;
-  final List<String> origin_country;
-  final String original_language;
-  final String original_name;
-  final String overview;
-  final double popularity;
-  final String poster_path;
-  final String first_air_date;
-  final String name;
-  final double vote_average;
-  final int vote_count;
-  TvseriesEntity(this.adult, this.backdrop_path, this.genre_ids, this.id, this.origin_country, this.original_language, this.original_name, this.overview, this.popularity, this.poster_path, this.first_air_date, this.name, this.vote_average, this.vote_count);
+  bool? adult;
+  String? backdrop_path;
+  List<int>? genre_ids;
+  double id;
+  List<String>? origin_country;
+  String? original_language;
+  String? original_name;
+  String? overview;
+  double? popularity;
+  String? poster_path;
+  String? first_air_date;
+  String? name;
+  double? vote_average;
+  String type;
+  int? vote_count;
+  TvseriesEntity(this.adult, this.backdrop_path, this.genre_ids, this.id, this.origin_country, this.original_language, this.original_name, this.overview, this.popularity, this.poster_path, this.first_air_date, this.name, this.vote_average, this.vote_count):type=TypeMovie.TvSeries.toString();
   
+  TvseriesEntity.watchlist({
+    required this.id,
+    required this.overview,
+    required this.poster_path,
+    required this.name,
+    required this.type
+  });
+
   @override
   List<Object?> get props => [
     adult,
@@ -31,6 +41,7 @@ class TvseriesEntity extends Equatable{
     poster_path,
     first_air_date,
     name,
-    vote_average
+    vote_average,
+    type
   ];
 }

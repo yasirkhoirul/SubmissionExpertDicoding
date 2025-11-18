@@ -1,8 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/constants.dart';
+import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/presentation/pages/movie_detail_page.dart';
+import 'package:ditonton/presentation/pages/tv_series_detail_page.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/web.dart';
 
 class MovieCard extends StatelessWidget {
   final Movie movie;
@@ -15,11 +18,17 @@ class MovieCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 4),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(
-            context,
-            MovieDetailPage.ROUTE_NAME,
-            arguments: movie.id,
-          );
+          Logger().d(movie.type);
+          if (movie.type == TypeMovie.Movie.toString()) {
+            Navigator.pushNamed(
+              context,
+              MovieDetailPage.ROUTE_NAME,
+              arguments: movie.id,
+            );
+            
+          }else{
+            Navigator.pushNamed(context, TvSeriesDetailPage.ROOUTE_NAME,arguments: movie.id.toDouble());
+          }
         },
         child: Stack(
           alignment: Alignment.bottomLeft,
@@ -44,6 +53,12 @@ class MovieCard extends StatelessWidget {
                     Text(
                       movie.overview ?? '-',
                       maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      movie.type == 'TypeMovie.Movie'?"Type : Movie":"Type : Tv",
+                      maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],

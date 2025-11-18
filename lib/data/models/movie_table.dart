@@ -1,3 +1,4 @@
+import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
 import 'package:equatable/equatable.dart';
@@ -7,26 +8,32 @@ class MovieTable extends Equatable {
   final String? title;
   final String? posterPath;
   final String? overview;
+  final TypeMovie? type;
 
   MovieTable({
     required this.id,
     required this.title,
     required this.posterPath,
     required this.overview,
+    required this.type
   });
+
+
 
   factory MovieTable.fromEntity(MovieDetail movie) => MovieTable(
         id: movie.id,
         title: movie.title,
         posterPath: movie.posterPath,
-        overview: movie.overview,
+        overview: movie.overview, 
+        type: TypeMovie.Movie,
       );
 
   factory MovieTable.fromMap(Map<String, dynamic> map) => MovieTable(
         id: map['id'],
         title: map['title'],
         posterPath: map['posterPath'],
-        overview: map['overview'],
+        overview: map['overview'], 
+        type: map['type'] == TypeMovie.Movie.toString()?TypeMovie.Movie:TypeMovie.TvSeries,
       );
 
   Map<String, dynamic> toJson() => {
@@ -34,6 +41,7 @@ class MovieTable extends Equatable {
         'title': title,
         'posterPath': posterPath,
         'overview': overview,
+        'type':TypeMovie.Movie.toString()
       };
 
   Movie toEntity() => Movie.watchlist(
@@ -41,9 +49,9 @@ class MovieTable extends Equatable {
         overview: overview,
         posterPath: posterPath,
         title: title,
+        type: type.toString()
       );
 
   @override
-  // TODO: implement props
-  List<Object?> get props => [id, title, posterPath, overview];
+  List<Object?> get props => [id, title, posterPath, overview,type];
 }

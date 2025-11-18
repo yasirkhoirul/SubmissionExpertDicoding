@@ -3,11 +3,20 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i7;
 
+import 'package:dartz/dartz.dart' as _i5;
+import 'package:ditonton/common/failure.dart' as _i9;
 import 'package:ditonton/data/datasources/tv_series_remote_data_source.dart'
-    as _i3;
+    as _i6;
+import 'package:ditonton/data/models/tv_detail_model.dart' as _i3;
 import 'package:ditonton/data/models/tv_response.dart' as _i2;
+import 'package:ditonton/data/models/tv_series_detail_recomendation.dart'
+    as _i4;
+import 'package:ditonton/domain/entities/tv_series_detail.dart' as _i11;
+import 'package:ditonton/domain/entities/tv_series_recomendation.dart' as _i12;
+import 'package:ditonton/domain/entities/tvseries.dart' as _i10;
+import 'package:ditonton/domain/repositories/tv_repositories.dart' as _i8;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -34,27 +43,155 @@ class _FakeTvResponse_0 extends _i1.SmartFake implements _i2.TvResponse {
         );
 }
 
+class _FakeTvDetailModel_1 extends _i1.SmartFake implements _i3.TvDetailModel {
+  _FakeTvDetailModel_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeTvSeriesDetailRecomendation_2 extends _i1.SmartFake
+    implements _i4.TvSeriesDetailRecomendation {
+  _FakeTvSeriesDetailRecomendation_2(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeEither_3<L, R> extends _i1.SmartFake implements _i5.Either<L, R> {
+  _FakeEither_3(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [TvSeriesRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockTvSeriesRemoteDataSource extends _i1.Mock
-    implements _i3.TvSeriesRemoteDataSource {
+    implements _i6.TvSeriesRemoteDataSource {
   MockTvSeriesRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.TvResponse> getTvSeriesOnAiring() => (super.noSuchMethod(
+  _i7.Future<_i2.TvResponse> getTvSeriesOnAiring() => (super.noSuchMethod(
         Invocation.method(
           #getTvSeriesOnAiring,
           [],
         ),
-        returnValue: _i4.Future<_i2.TvResponse>.value(_FakeTvResponse_0(
+        returnValue: _i7.Future<_i2.TvResponse>.value(_FakeTvResponse_0(
           this,
           Invocation.method(
             #getTvSeriesOnAiring,
             [],
           ),
         )),
-      ) as _i4.Future<_i2.TvResponse>);
+      ) as _i7.Future<_i2.TvResponse>);
+
+  @override
+  _i7.Future<_i3.TvDetailModel> getTvDetail(int? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getTvDetail,
+          [id],
+        ),
+        returnValue: _i7.Future<_i3.TvDetailModel>.value(_FakeTvDetailModel_1(
+          this,
+          Invocation.method(
+            #getTvDetail,
+            [id],
+          ),
+        )),
+      ) as _i7.Future<_i3.TvDetailModel>);
+
+  @override
+  _i7.Future<_i4.TvSeriesDetailRecomendation> getRecomendation(int? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getRecomendation,
+          [id],
+        ),
+        returnValue: _i7.Future<_i4.TvSeriesDetailRecomendation>.value(
+            _FakeTvSeriesDetailRecomendation_2(
+          this,
+          Invocation.method(
+            #getRecomendation,
+            [id],
+          ),
+        )),
+      ) as _i7.Future<_i4.TvSeriesDetailRecomendation>);
+}
+
+/// A class which mocks [TvRepositories].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockTvRepositories extends _i1.Mock implements _i8.TvRepositories {
+  MockTvRepositories() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i7.Future<_i5.Either<_i9.Failure, List<_i10.TvseriesEntity>>>
+      getListTVonAiring() => (super.noSuchMethod(
+            Invocation.method(
+              #getListTVonAiring,
+              [],
+            ),
+            returnValue: _i7.Future<
+                    _i5.Either<_i9.Failure, List<_i10.TvseriesEntity>>>.value(
+                _FakeEither_3<_i9.Failure, List<_i10.TvseriesEntity>>(
+              this,
+              Invocation.method(
+                #getListTVonAiring,
+                [],
+              ),
+            )),
+          ) as _i7.Future<_i5.Either<_i9.Failure, List<_i10.TvseriesEntity>>>);
+
+  @override
+  _i7.Future<_i5.Either<_i9.Failure, _i11.TvSeriesDetail>> getDetail(int? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getDetail,
+          [id],
+        ),
+        returnValue:
+            _i7.Future<_i5.Either<_i9.Failure, _i11.TvSeriesDetail>>.value(
+                _FakeEither_3<_i9.Failure, _i11.TvSeriesDetail>(
+          this,
+          Invocation.method(
+            #getDetail,
+            [id],
+          ),
+        )),
+      ) as _i7.Future<_i5.Either<_i9.Failure, _i11.TvSeriesDetail>>);
+
+  @override
+  _i7.Future<_i5.Either<_i9.Failure, List<_i12.TvSeriesRecomendationitem>>>
+      getRecomendation(int? id) => (super.noSuchMethod(
+            Invocation.method(
+              #getRecomendation,
+              [id],
+            ),
+            returnValue: _i7.Future<
+                _i5.Either<_i9.Failure,
+                    List<_i12.TvSeriesRecomendationitem>>>.value(_FakeEither_3<
+                _i9.Failure, List<_i12.TvSeriesRecomendationitem>>(
+              this,
+              Invocation.method(
+                #getRecomendation,
+                [id],
+              ),
+            )),
+          ) as _i7.Future<
+              _i5.Either<_i9.Failure, List<_i12.TvSeriesRecomendationitem>>>);
 }

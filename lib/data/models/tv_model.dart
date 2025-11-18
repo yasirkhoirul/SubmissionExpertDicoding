@@ -20,7 +20,7 @@ class TvModel extends Equatable {
   final String name;
   final double vote_average;
   final int vote_count;
-
+  
   TvModel(
       this.adult,
       this.backdrop_path,
@@ -39,7 +39,6 @@ class TvModel extends Equatable {
 
   factory TvModel.fromJson(Map<String, dynamic> json) =>
       _$TvModelFromJson(json);
-  Map<String, dynamic> toJson() => _$TvModelToJson(this);
 
   TvseriesEntity toEntity() => TvseriesEntity(
       adult,

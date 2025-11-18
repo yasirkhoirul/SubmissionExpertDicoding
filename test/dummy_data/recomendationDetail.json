@@ -1,0 +1,452 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/oXOrpkaoS4YfpjgqBTppxJOL5t0.jpg",
+            "id": 106158,
+            "name": "Law & Order: Organized Crime",
+            "original_name": "Law & Order: Organized Crime",
+            "overview": "The detectives of the Organized Crime Control Bureau work to dismantle New York City's most vicious and violent illegal enterprises.",
+            "poster_path": "/wOffjfafVLyav9CMDgBfIv49J9Y.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                80,
+                18
+            ],
+            "popularity": 15.42,
+            "first_air_date": "2021-04-01",
+            "vote_average": 7.893,
+            "vote_count": 281,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/tc7canPSAn2X14hYi6Rl3gZm1o4.jpg",
+            "id": 549,
+            "name": "Law & Order",
+            "original_name": "Law & Order",
+            "overview": "In cases ripped from the headlines, police investigate serious and often deadly crimes, weighing the evidence and questioning the suspects until someone is taken into custody. The district attorney's office then builds a case to convict the perpetrator by proving the person guilty beyond a reasonable doubt. Working together, these expert teams navigate all sides of the complex criminal justice system to make New York a safer place.",
+            "poster_path": "/haJ9eHytVO3H3JooMJG1DiWwDNm.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                80,
+                18
+            ],
+            "popularity": 107.0031,
+            "first_air_date": "1990-09-13",
+            "vote_average": 7.377,
+            "vote_count": 643,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/w88B4ooZ2LSYPw5107JOkjvI8PI.jpg",
+            "id": 4057,
+            "name": "Criminal Minds",
+            "original_name": "Criminal Minds",
+            "overview": "An elite team of FBI profilers analyze the country's most twisted criminal minds, anticipating their next moves before they strike again. The Behavioral Analysis Unit's most experienced agent is David Rossi, a founding member of the BAU who returns to help the team solve new cases.",
+            "poster_path": "/gigxjNnACiXAfrwoMox5WJFgc0I.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                80,
+                18,
+                9648
+            ],
+            "popularity": 89.2545,
+            "first_air_date": "2005-09-22",
+            "vote_average": 8.306,
+            "vote_count": 3950,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/qLYumObEHeRHFMC6N3SfCrnBFjp.jpg",
+            "id": 4601,
+            "name": "Law & Order: Criminal Intent",
+            "original_name": "Law & Order: Criminal Intent",
+            "overview": "The third installment of the “Law & Order” franchise takes viewers deep into the minds of its criminals while following the intense psychological approaches the Major Case Squad uses to solve its crimes.",
+            "poster_path": "/zgBg8gTCELQg73awE7qAuV06c4Z.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 33.2515,
+            "first_air_date": "2001-09-30",
+            "vote_average": 7.6,
+            "vote_count": 362,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/c1aBrG5s5xFa6Tbnihu2Hhj4t2q.jpg",
+            "id": 4614,
+            "name": "NCIS",
+            "original_name": "NCIS",
+            "overview": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has any connection to Navy and Marine Corps personnel, regardless of rank or position.",
+            "poster_path": "/mBcu8d6x6zB1el3MPNl7cZQEQ31.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                80,
+                18,
+                10759
+            ],
+            "popularity": 131.1321,
+            "first_air_date": "2003-09-23",
+            "vote_average": 7.6,
+            "vote_count": 2413,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/rhp8vYG1sIFtqH3ETmHJuI5Z3Cb.jpg",
+            "id": 58841,
+            "name": "Chicago P.D.",
+            "original_name": "Chicago P.D.",
+            "overview": "A riveting police drama about the men and women of the Chicago Police Department's District 21 who put it all on the line to serve and protect their community. District 21 is made up of two distinctly different groups: the uniformed cops who patrol the beat and go head-to-head with the city's street crimes and the Intelligence Unit that combats the city's major offenses - organized crime, drug trafficking, high profile murders and beyond.",
+            "poster_path": "/bez40PgT36RUu4gstD2A6GSM0tP.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                80,
+                18
+            ],
+            "popularity": 56.731,
+            "first_air_date": "2014-01-08",
+            "vote_average": 8.4,
+            "vote_count": 2508,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/4AXxajuAz9tHAOe6h5zDg8z1X2s.jpg",
+            "id": 1911,
+            "name": "Bones",
+            "original_name": "Bones",
+            "overview": "Dr. Temperance Brennan and her colleagues at the Jeffersonian's Medico-Legal Lab assist Special Agent Seeley Booth with murder investigations when the remains are so badly decomposed, burned or destroyed that the standard identification methods are useless.",
+            "poster_path": "/eyTu5c8LniVciRZIOSHTvvkkgJa.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                80,
+                18
+            ],
+            "popularity": 71.237,
+            "first_air_date": "2005-09-13",
+            "vote_average": 8.207,
+            "vote_count": 3350,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/zOnLMRD3PIhwO5KZmWMVEnLokMo.jpg",
+            "id": 1419,
+            "name": "Castle",
+            "original_name": "Castle",
+            "overview": "After a serial killer imitates the plots of his novels, successful mystery novelist Richard \"Rick\" Castle receives permission from the Mayor of New York City to tag along with an NYPD homicide investigation team for research purposes.",
+            "poster_path": "/diXBeMzvfJb2iJg3G0kCUaMCzEc.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                18,
+                80
+            ],
+            "popularity": 53.036,
+            "first_air_date": "2009-03-09",
+            "vote_average": 7.982,
+            "vote_count": 1994,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/cvlLBcQWpO9X21jDHhgPJnE2aVq.jpg",
+            "id": 1431,
+            "name": "CSI: Crime Scene Investigation",
+            "original_name": "CSI: Crime Scene Investigation",
+            "overview": "A Las Vegas team of forensic investigators are trained to solve criminal cases by scouring the crime scene, collecting irrefutable evidence and finding the missing pieces that solve the mystery.",
+            "poster_path": "/i5hmoRjHNWady4AtAGICTUXknKH.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                80,
+                18,
+                9648
+            ],
+            "popularity": 70.1992,
+            "first_air_date": "2000-10-06",
+            "vote_average": 7.636,
+            "vote_count": 1324,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/14LzHqJrFcHk7ruMNCXpEkB0Thg.jpg",
+            "id": 44006,
+            "name": "Chicago Fire",
+            "original_name": "Chicago Fire",
+            "overview": "An edge-of-your-seat view into the lives of everyday heroes committed to one of America's noblest professions. For the firefighters, rescue squad and paramedics of Chicago Firehouse 51, no occupation is more stressful or dangerous, yet so rewarding and exhilarating. These courageous men and women are among the elite who forge headfirst into danger when everyone else is running the other way and whose actions make the difference between life and death.",
+            "poster_path": "/r915sk2JpthZSjHEgZKifWxgo6L.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 64.7537,
+            "first_air_date": "2012-10-10",
+            "vote_average": 8.4,
+            "vote_count": 2320,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/dAepkmD4vdfhS82r2OIqF1nwGR5.jpg",
+            "id": 17610,
+            "name": "NCIS: Los Angeles",
+            "original_name": "NCIS: Los Angeles",
+            "overview": "The exploits of the Los Angeles–based Office of Special Projects (OSP), an elite division of the Naval Criminal Investigative Service that specializes in undercover assignments.",
+            "poster_path": "/TIIgcznwNfNr3KOZvxn26eKV99.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                10759,
+                18,
+                80,
+                9648
+            ],
+            "popularity": 40.3489,
+            "first_air_date": "2009-09-22",
+            "vote_average": 7.529,
+            "vote_count": 1208,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/uinrziSwEmS6s8VvGBad5sed7bF.jpg",
+            "id": 1435,
+            "name": "The Good Wife",
+            "original_name": "The Good Wife",
+            "overview": "Alicia Florrick boldly assumes full responsibility for her family and re-enters the workforce after her husband's very public sex and political corruption scandal lands him in jail.",
+            "poster_path": "/lasNCd45fpPLirlA7QxkuopWro.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 36.9035,
+            "first_air_date": "2009-09-22",
+            "vote_average": 7.585,
+            "vote_count": 639,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/yg6goCewFMVYQC9Vypz6YpwVOUf.jpg",
+            "id": 46910,
+            "name": "Catfish: The TV Show",
+            "original_name": "Catfish: The TV Show",
+            "overview": "Nev and his co-hosts -- from Max to Kamie to celebrity guests -- help people in dubious online relationships track down their baes IRL so they can sort out what's fact and what's fiction.",
+            "poster_path": "/gy6kqWfIWaVyjU7ifa3KkkTDSHd.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                10764,
+                18
+            ],
+            "popularity": 6.726,
+            "first_air_date": "2012-11-12",
+            "vote_average": 6.684,
+            "vote_count": 136,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/bhG1XJ1fubbZkLnoBAxNrzzGXOg.jpg",
+            "id": 1620,
+            "name": "CSI: Miami",
+            "original_name": "CSI: Miami",
+            "overview": "CSI: Miami follows Crime Scene Investigators working for the Miami-Dade Police Department as they use physical evidence, similar to their Las Vegas counterparts, to solve grisly murders. The series mixes deduction, gritty subject matter, and character-driven drama in the same vein as the original series in the CSI franchise, except that the Miami CSIs are cops first, scientists second.",
+            "poster_path": "/pNW64pjaHvf6purNaFhq4SHYRfl.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                18,
+                9648,
+                80
+            ],
+            "popularity": 45.7924,
+            "first_air_date": "2002-09-23",
+            "vote_average": 7.716,
+            "vote_count": 1655,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/suL7cJdywRnTmsT1RNjE78iJTsG.jpg",
+            "id": 32895,
+            "name": "Rizzoli & Isles",
+            "original_name": "Rizzoli & Isles",
+            "overview": "Perhaps their strikingly different personalities make the relationship between detective Jane Rizzoli and medical examiner Maura Isles so effective. Jane, the only female cop in Boston's homicide division, is tough, relentless and rarely lets her guard down, while the impeccably dressed Maura displays a sometimes icy temperament — she is, after all, more comfortable among the dead than the living. Together, the best friends have forged a quirky and supportive relationship; they drop the protective shield in each other's company, and combine their expertise to solve Boston's most complex cases.",
+            "poster_path": "/qQgTIsI6iWv4jO3kM6tHWVsKIIM.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                80,
+                18,
+                9648,
+                35
+            ],
+            "popularity": 21.0299,
+            "first_air_date": "2010-07-12",
+            "vote_average": 7.908,
+            "vote_count": 456,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/r0Q6eeN9L1ORL9QsV0Sg8ZV3vnv.jpg",
+            "id": 1408,
+            "name": "House",
+            "original_name": "House",
+            "overview": "Dr. Gregory House, a drug-addicted, unconventional, misanthropic medical genius, leads a team of diagnosticians at the fictional Princeton–Plainsboro Teaching Hospital in New Jersey.",
+            "poster_path": "/3Cz7ySOQJmqiuTdrc6CY0r65yDI.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                18,
+                35,
+                9648
+            ],
+            "popularity": 98.145,
+            "first_air_date": "2004-11-16",
+            "vote_average": 8.587,
+            "vote_count": 7162,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/o9YZvh82gSfkZuScn4XM9xeNeCY.jpg",
+            "id": 72496,
+            "name": "Law & Order True Crime",
+            "original_name": "Law & Order True Crime",
+            "overview": "An anthology series that delves into the players, the crime and the media circus, detailing the day-to-day battles of the trial and unveiling the shocking truth of what really went down when the cameras stopped rolling.",
+            "poster_path": "/14T6cTwynqxU10e1cCnSc75AcNa.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                80,
+                18
+            ],
+            "popularity": 1.8589,
+            "first_air_date": "2017-09-26",
+            "vote_average": 7.206,
+            "vote_count": 85,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/q3pCsNvJ7CmdJUz2sJEEUY3pOPC.jpg",
+            "id": 5920,
+            "name": "The Mentalist",
+            "original_name": "The Mentalist",
+            "overview": "Patrick Jane, a former celebrity psychic medium, uses his razor sharp skills of observation and expertise at \"reading\" people to solve serious crimes with the California Bureau of Investigation.",
+            "poster_path": "/acYXu4KaDj1NIkMgObnhe4C4a0T.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                80,
+                18,
+                9648
+            ],
+            "popularity": 96.2603,
+            "first_air_date": "2008-09-23",
+            "vote_average": 8.358,
+            "vote_count": 4059,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/jP0Rhj9OTPDAwQlHQwOLFDdeE8t.jpg",
+            "id": 1416,
+            "name": "Grey's Anatomy",
+            "original_name": "Grey's Anatomy",
+            "overview": "Follows the personal and professional lives of a group of doctors at Seattle’s Grey Sloan Memorial Hospital.",
+            "poster_path": "/hjJkrLXhWvGHpLeLBDFznpBTY1S.jpg",
+            "media_type": "tv",
+            "original_language": "en",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 140.9714,
+            "first_air_date": "2005-03-27",
+            "vote_average": 8.213,
+            "vote_count": 10685,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/wkyzeBBKLhSg1Oqhky5yoiFF2hG.jpg",
+            "id": 79008,
+            "name": "Luis Miguel: The Series",
+            "original_name": "Luis Miguel: La Serie",
+            "overview": "The series dramatizes the life story of Mexican superstar singer Luis Miguel, who has captivated audiences in Latin America and beyond for decades.",
+            "poster_path": "/zs9nMZdCy0EzWe6ZQoVYWZJpVcm.jpg",
+            "media_type": "tv",
+            "original_language": "es",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 2.4453,
+            "first_air_date": "2018-04-22",
+            "vote_average": 8.0,
+            "vote_count": 597,
+            "origin_country": [
+                "MX"
+            ]
+        }
+    ],
+    "total_pages": 2,
+    "total_results": 40
+}

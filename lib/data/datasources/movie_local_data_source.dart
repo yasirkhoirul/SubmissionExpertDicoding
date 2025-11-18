@@ -1,6 +1,7 @@
 import 'package:ditonton/common/exception.dart';
 import 'package:ditonton/data/datasources/db/database_helper.dart';
 import 'package:ditonton/data/models/movie_table.dart';
+import 'package:logger/logger.dart';
 
 abstract class MovieLocalDataSource {
   Future<String> insertWatchlist(MovieTable movie);
@@ -47,6 +48,7 @@ class MovieLocalDataSourceImpl implements MovieLocalDataSource {
   @override
   Future<List<MovieTable>> getWatchlistMovies() async {
     final result = await databaseHelper.getWatchlistMovies();
+    Logger().d("hasil pertama kali list $result");
     return result.map((data) => MovieTable.fromMap(data)).toList();
   }
 }
