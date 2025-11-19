@@ -11,7 +11,7 @@ class TvPopular extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Top Rated Movies'),
+        title: Text('Popular Tv Series'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
