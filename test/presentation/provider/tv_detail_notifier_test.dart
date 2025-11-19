@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/common/state_enum.dart';
+import 'package:ditonton/data/models/tv_series_detail_recomendation.dart';
 import 'package:ditonton/domain/entities/tv_series_detail.dart';
 import 'package:ditonton/domain/usecases/get_tv_series_detail.dart';
 import 'package:ditonton/domain/usecases/get_tv_series_recomendation.dart';
@@ -12,6 +15,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
+import '../../json_reader.dart';
 import 'tv_detail_notifier_test.mocks.dart';
 
 @GenerateMocks([GetTvSeriesDetail,GetTvSeriesRecomendation,SaveWatchlistTv,RemoveWatchlistTv,GetWatchlistStatusTv])
@@ -111,6 +115,40 @@ void main() {
       await provider.removeWatchLIst(datadummy);
 
       expect(provider.watchlistmessage, "sukes dihapus");
+    });
+    test("remove watchlist fail ", ()async{
+      when(removeWatchlistTv.excute(datadummy)).thenAnswer((realInvocation)async => Left(DatabaseFailure("failed")),);
+
+      when(mockGetWatchlistStatusTv.execute(datadummy.id))
+      .thenAnswer((realInvocation) async => true);
+      
+      await provider.removeWatchLIst(datadummy);
+
+      expect(provider.statuswatchlist, RequestState.Error);
+      expect(provider.watchlistmessage, "failed");
+    });
+  });
+
+  group("test getrecomendation", () {
+      final data = TvSeriesDetailRecomendation.fromJson(jsonDecode(readJson("dummy_data/tv_recomendation.json")));
+      final datadum = data.results.map((e) => e.toentity(),).toList();
+    test("get recomendation", () async{
+      when(getTvSeriesRecomendation.execute(2)).thenAnswer((realInvocation)async => Right(datadum),);
+
+      
+      await provider.getRecomendation(2);
+
+      expect(provider.statusrecomendation, RequestState.Loaded);
+      expect(provider.datarekomendasi, datadum);
+    });
+
+    test("conec fail should return Failure", ()async{
+      when(getTvSeriesRecomendation.execute(2)).thenAnswer((realInvocation)async => Left(ConnectionFailure("conection failed")),);
+      
+      await provider.getRecomendation(2);
+
+      expect(provider.statusrecomendation, RequestState.Error);
+      expect(provider.messagerek, "conection failed");
     });
   });
 }

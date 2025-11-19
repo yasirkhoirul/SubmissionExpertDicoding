@@ -45,22 +45,25 @@ void main() {
     );
     expect(resultlist, fakeEntity);
   });
-  test('getLIst should return list tv popular', () async {
-    //arrange
-    final fakeEntity = listTvEntity;
-    when(mockdatasource.getPopular()).thenAnswer(
-      (realInvocation) async => dummyResonse,
-    );
 
-    //act
-    final result = await tvRepositories.getPopularTv();
+  group("get popular test", () {
+    test('getLIst should return list tv popular', () async {
+      //arrange
+      final fakeEntity = listTvEntity;
+      when(mockdatasource.getPopular()).thenAnswer(
+        (realInvocation) async => dummyResonse,
+      );
 
-    //assert
-    verify(mockdatasource.getPopular()).called(1);
-    final resultlist = result.getOrElse(
-      () => [],
-    );
-    expect(resultlist, fakeEntity);
+      //act
+      final result = await tvRepositories.getPopularTv();
+
+      //assert
+      verify(mockdatasource.getPopular()).called(1);
+      final resultlist = result.getOrElse(
+        () => [],
+      );
+      expect(resultlist, fakeEntity);
+    });
   });
 
   test('getLIst should return list tv top tv', () async {
@@ -165,7 +168,11 @@ void main() {
       //arrange
       final data = TvSeriesDetailRecomendation.fromJson(
           jsonDecode(readJson("dummy_data/tv_recomendation.json")));
-      final fakedata = data.results.map((e) => e.toentity(),).toList();
+      final fakedata = data.results
+          .map(
+            (e) => e.toentity(),
+          )
+          .toList();
       when(mockdatasource.getRecomendation(2)).thenAnswer(
         (realInvocation) async => data,
       );
@@ -176,8 +183,8 @@ void main() {
       //assert
       verify(mockdatasource.getRecomendation(2)).called(1);
       final resultlist = result.getOrElse(
-      () => [],
-    );
+        () => [],
+      );
       expect(resultlist, fakedata);
     });
 
@@ -197,26 +204,25 @@ void main() {
     });
 
     test('failed should server failure', () async {
-    //arrange
-    when(mockdatasource.getRecomendation(2)).thenThrow(
-      ServerException(),
-    );
+      //arrange
+      when(mockdatasource.getRecomendation(2)).thenThrow(
+        ServerException(),
+      );
 
-    //act
-    final result = await tvRepositories.getRecomendation(2);
+      //act
+      final result = await tvRepositories.getRecomendation(2);
 
-    //assert
-    verify(mockdatasource.getRecomendation(2));
+      //assert
+      verify(mockdatasource.getRecomendation(2));
 
-    expect(result, equals(Left(ServerFailure(""))));
-  });
+      expect(result, equals(Left(ServerFailure(""))));
+    });
   });
 
   group("test get getwatchlist tv", () {
     test('getwatchlist should return list watchlist tv', () async {
       //arrange
-      final data = TvSeriesTable.fromMap(
-          testTvmap);
+      final data = TvSeriesTable.fromMap(testTvmap);
       final TvseriesEntity dataakhir = data.toEntity();
       when(mockTvLoaclDataSource.getWatchlistMovies()).thenAnswer(
         (realInvocation) async => <TvSeriesTable>[data],
@@ -228,8 +234,8 @@ void main() {
       //assert
       verify(mockTvLoaclDataSource.getWatchlistMovies()).called(1);
       final resultlist = result.getOrElse(
-      () => [],
-    );
+        () => [],
+      );
       expect(resultlist, <TvseriesEntity>[dataakhir]);
     });
 
@@ -249,29 +255,29 @@ void main() {
     });
 
     test('failed should server failure', () async {
-    //arrange
-    when(mockTvLoaclDataSource.getWatchlistMovies()).thenThrow(
-      ServerException(),
-    );
+      //arrange
+      when(mockTvLoaclDataSource.getWatchlistMovies()).thenThrow(
+        ServerException(),
+      );
 
-    //act
-    final result = await tvRepositories.getWatchlistMovies();
+      //act
+      final result = await tvRepositories.getWatchlistMovies();
 
-    //assert
-    verify(mockTvLoaclDataSource.getWatchlistMovies());
+      //assert
+      verify(mockTvLoaclDataSource.getWatchlistMovies());
 
-    expect(result, equals(Left(ServerFailure(""))));
+      expect(result, equals(Left(ServerFailure(""))));
+    });
   });
-  });
-
 
   group("test get savewatchlist tv", () {
     final TvSeriesDetail dataakhir = TvDetailModel.fromJson(
-          jsonDecode(readJson("dummy_data/tv_series_detail.json"))).toEntity();
-      final TvSeriesTable data = TvSeriesTable.fromEntity(dataakhir);
+            jsonDecode(readJson("dummy_data/tv_series_detail.json")))
+        .toEntity();
+    final TvSeriesTable data = TvSeriesTable.fromEntity(dataakhir);
     test('insert tv should return message', () async {
       //arrange
-      
+
       when(mockTvLoaclDataSource.insertWatchlist(data)).thenAnswer(
         (realInvocation) async => 'Added to Watchlist',
       );
@@ -281,7 +287,7 @@ void main() {
 
       //assert
       verify(mockTvLoaclDataSource.insertWatchlist(data)).called(1);
-      
+
       expect(result, Right('Added to Watchlist'));
     });
 
@@ -296,13 +302,7 @@ void main() {
       //assert
       verify(mockTvLoaclDataSource.insertWatchlist(data));
 
-      expect(
-          result, equals(Left(DatabaseFailure("Failed to add watchlist"))));
+      expect(result, equals(Left(DatabaseFailure("Failed to add watchlist"))));
     });
-
-    
   });
-  
 }
-
-
