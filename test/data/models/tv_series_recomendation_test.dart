@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../json_reader.dart';
 
 void main(){
-  test("model should returnn model and result should return list", (){
+  test("model should returnn model and result should return list tvseries", (){
     final data = TvSeriesDetailRecomendation.fromJson(jsonDecode(readJson("dummy_data/recomendationDetail.json")));
     expect(data.results, isA<List<TvSeriesDetailRecomendationItem>>());
     expect(data, isA<TvSeriesDetailRecomendation>());

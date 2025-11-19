@@ -6,7 +6,7 @@ import 'package:ditonton/domain/repositories/tv_repositories.dart';
 class GetTvOnAiring {
   final TvRepositories tvrepo;
   GetTvOnAiring({required this.tvrepo});
-  Future<Either<Failure,List<TvseriesEntity>>> execute()async{
+  Future<Either<Failure, List<TvseriesEntity>>> execute() async {
     return await tvrepo.getListTVonAiring();
   }
 }

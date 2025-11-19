@@ -7,7 +7,7 @@ class RemoveWatchlistTv {
   final TvRepositories tvrepo;
   RemoveWatchlistTv({required this.tvrepo});
 
-  Future <Either<Failure,String>> excute(TvSeriesDetail tv){
+  Future<Either<Failure, String>> excute(TvSeriesDetail tv) {
     return tvrepo.removeWatchlist(tv);
   }
 }

@@ -6,9 +6,8 @@ import 'package:ditonton/domain/usecases/watchlisttvseries/remove_watchlist_tv.d
 import 'package:ditonton/domain/usecases/watchlisttvseries/save_watchlist_tv.dart';
 import 'package:flutter/material.dart';
 
-class WatchlistTvNotifier extends ChangeNotifier{
-  
-  RequestState _status= RequestState.Empty;
+class WatchlistTvNotifier extends ChangeNotifier {
+  RequestState _status = RequestState.Empty;
   RequestState get status => _status;
 
   List<TvseriesEntity>? _data;
@@ -16,15 +15,18 @@ class WatchlistTvNotifier extends ChangeNotifier{
 
   String _message = '';
   String get message => _message;
-  
 
-  WatchlistTvNotifier({required this.statusTv,required this.getWatchlistTv,required this.removeWatchlistTv,required this.saveWatchlistTv});
+  WatchlistTvNotifier(
+      {required this.statusTv,
+      required this.getWatchlistTv,
+      required this.removeWatchlistTv,
+      required this.saveWatchlistTv});
   final GetWatchlistStatusTv statusTv;
   final GetWatchlistTv getWatchlistTv;
   final RemoveWatchlistTv removeWatchlistTv;
   final SaveWatchlistTv saveWatchlistTv;
 
-  addtvwatchlist()async{
+  addtvwatchlist() async {
     _status = RequestState.Loading;
     notifyListeners();
 

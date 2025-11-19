@@ -7,7 +7,7 @@ class GetWatchlistTv {
   final TvRepositories tvrepo;
   GetWatchlistTv({required this.tvrepo});
 
-  Future <Either<Failure,List<TvseriesEntity>>> execute(){
+  Future<Either<Failure, List<TvseriesEntity>>> execute() {
     return tvrepo.getWatchlistMovies();
   }
 }

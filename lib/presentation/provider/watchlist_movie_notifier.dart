@@ -21,25 +21,23 @@ class WatchlistMovieNotifier extends ChangeNotifier {
   Future<void> fetchWatchlistMovies() async {
     _watchlistState = RequestState.Loading;
     notifyListeners();
-  try {
-    final result = await getWatchlistMovies.execute();
-    result.fold(
-      (failure) {
-        _watchlistState = RequestState.Error;
-        _message = failure.message;
-        notifyListeners();
-      },
-      (moviesData) {
-        _watchlistState = RequestState.Loaded;
-        Logger().d("ini adalah list dari watchlist $moviesData");
-        _watchlistMovies = moviesData;
-        notifyListeners();
-      },
-    );
-  } catch (e) {
-        Logger().d("ini adalah error list dari watchlist $e");
-    
-  }
-    
+    try {
+      final result = await getWatchlistMovies.execute();
+      result.fold(
+        (failure) {
+          _watchlistState = RequestState.Error;
+          _message = failure.message;
+          notifyListeners();
+        },
+        (moviesData) {
+          _watchlistState = RequestState.Loaded;
+          Logger().d("ini adalah list dari watchlist $moviesData");
+          _watchlistMovies = moviesData;
+          notifyListeners();
+        },
+      );
+    } catch (e) {
+      Logger().d("ini adalah error list dari watchlist $e");
+    }
   }
 }

@@ -20,7 +20,7 @@ class TvModel extends Equatable {
   final String name;
   final double vote_average;
   final int vote_count;
-  
+
   TvModel(
       this.adult,
       this.backdrop_path,

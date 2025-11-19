@@ -3,14 +3,13 @@ import 'package:ditonton/domain/entities/tv_series_detail.dart';
 import 'package:ditonton/domain/entities/tv_series_recomendation.dart';
 import 'package:ditonton/domain/usecases/get_tv_series_detail.dart';
 import 'package:ditonton/domain/usecases/get_tv_series_recomendation.dart';
-import 'package:ditonton/domain/usecases/get_watchlist_status.dart';
+import 'package:ditonton/domain/usecases/watchlisttvseries/get_watchlist_status.dart';
 import 'package:ditonton/domain/usecases/watchlisttvseries/remove_watchlist_tv.dart';
 import 'package:ditonton/domain/usecases/watchlisttvseries/save_watchlist_tv.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logger/web.dart';
 
-class TvSeriesDetailNotifier extends ChangeNotifier{
-
+class TvSeriesDetailNotifier extends ChangeNotifier {
   RequestState _statusRekomendation = RequestState.Empty;
   RequestState get statusrecomendation => _statusRekomendation;
 
@@ -18,7 +17,7 @@ class TvSeriesDetailNotifier extends ChangeNotifier{
   RequestState get status => _status;
 
   RequestState _statusWatchlist = RequestState.Empty;
-  RequestState get statuswatchlist =>  _statusWatchlist;
+  RequestState get statuswatchlist => _statusWatchlist;
 
   TvSeriesDetail? _datadetail;
   TvSeriesDetail? get datadetail => _datadetail;
@@ -26,23 +25,28 @@ class TvSeriesDetailNotifier extends ChangeNotifier{
   List<TvSeriesRecomendationitem>? _datarekomendasi;
   List<TvSeriesRecomendationitem>? get datarekomendasi => _datarekomendasi;
 
-  String _messageRek ="";
+  String _messageRek = "";
   String get messagerek => _messageRek;
 
   String _message = "";
   String get message => _message;
 
-  String _watchlistmessage ="";
+  String _watchlistmessage = "";
   String get watchlistmessage => _watchlistmessage;
 
   bool _isAddedToWatchlist = false;
   bool get isAddedWatchlist => _isAddedToWatchlist;
 
-  TvSeriesDetailNotifier( {required this.getMovieDetail,required this.getTvSeriesRecomendation,required this.saveWatchlistTv,required this.getWatchListStatus,required this.removeWatchlistTv});
+  TvSeriesDetailNotifier(
+      {required this.getMovieDetail,
+      required this.getTvSeriesRecomendation,
+      required this.saveWatchlistTv,
+      required this.getWatchListStatus,
+      required this.removeWatchlistTv});
   final GetTvSeriesDetail getMovieDetail;
   final GetTvSeriesRecomendation getTvSeriesRecomendation;
   final SaveWatchlistTv saveWatchlistTv;
-  final GetWatchListStatus getWatchListStatus;
+  final GetWatchlistStatusTv getWatchListStatus;
   final RemoveWatchlistTv removeWatchlistTv;
 
   Future<void> loadWatchlistStatus(int id) async {
@@ -52,7 +56,6 @@ class TvSeriesDetailNotifier extends ChangeNotifier{
   }
 
   Future<void> addWatchlist(TvSeriesDetail tv) async {
-
     Logger().d("ini akan ditambahkan $tv");
     final result = await saveWatchlistTv.execute(tv);
     Logger().d("hasilnya $result");
@@ -69,7 +72,7 @@ class TvSeriesDetailNotifier extends ChangeNotifier{
     await loadWatchlistStatus(tv.id);
   }
 
-  getDetail(int id) async{
+  getDetail(int id) async {
     _status = RequestState.Loading;
     notifyListeners();
     try {
@@ -78,22 +81,21 @@ class TvSeriesDetailNotifier extends ChangeNotifier{
         (l) {
           _status = RequestState.Error;
           _message = l.message;
-        }
-        , 
+        },
         (r) {
           _status = RequestState.Loaded;
           _datadetail = r;
         },
-        );
+      );
     } catch (e) {
       _status = RequestState.Error;
       _message = e.toString();
-    } finally{
+    } finally {
       notifyListeners();
     }
   }
 
-  getRecomendation(int id)async{
+  getRecomendation(int id) async {
     _statusRekomendation = RequestState.Loading;
     notifyListeners();
     try {
@@ -103,21 +105,21 @@ class TvSeriesDetailNotifier extends ChangeNotifier{
         (l) {
           _statusRekomendation = RequestState.Error;
           _messageRek = l.message;
-        }
-        , (r) {
+        },
+        (r) {
           _statusRekomendation = RequestState.Loaded;
           _datarekomendasi = r;
-          
-        },);
+        },
+      );
     } catch (e) {
       _statusRekomendation = RequestState.Error;
       _message = e.toString();
-    }finally{
+    } finally {
       notifyListeners();
     }
   }
 
-  removeWatchLIst(TvSeriesDetail tv)async{    
+  removeWatchLIst(TvSeriesDetail tv) async {
     Logger().d("yang akan dihapus ${tv.id}");
     final result = await removeWatchlistTv.excute(tv);
 
@@ -126,12 +128,13 @@ class TvSeriesDetailNotifier extends ChangeNotifier{
         _statusWatchlist = RequestState.Error;
         _watchlistmessage = l.message;
         notifyListeners();
-      }
-      , (r) {
+      },
+      (r) {
         _statusWatchlist = RequestState.Loaded;
         _watchlistmessage = r;
         notifyListeners();
-      },);
-      await loadWatchlistStatus(tv.id);
+      },
+    );
+    await loadWatchlistStatus(tv.id);
   }
 }

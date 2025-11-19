@@ -10,21 +10,18 @@ class MovieTable extends Equatable {
   final String? overview;
   final TypeMovie? type;
 
-  MovieTable({
-    required this.id,
-    required this.title,
-    required this.posterPath,
-    required this.overview,
-    required this.type
-  });
-
-
+  MovieTable(
+      {required this.id,
+      required this.title,
+      required this.posterPath,
+      required this.overview,
+      required this.type});
 
   factory MovieTable.fromEntity(MovieDetail movie) => MovieTable(
         id: movie.id,
         title: movie.title,
         posterPath: movie.posterPath,
-        overview: movie.overview, 
+        overview: movie.overview,
         type: TypeMovie.Movie,
       );
 
@@ -32,8 +29,10 @@ class MovieTable extends Equatable {
         id: map['id'],
         title: map['title'],
         posterPath: map['posterPath'],
-        overview: map['overview'], 
-        type: map['type'] == TypeMovie.Movie.toString()?TypeMovie.Movie:TypeMovie.TvSeries,
+        overview: map['overview'],
+        type: map['type'] == TypeMovie.Movie.toString()
+            ? TypeMovie.Movie
+            : TypeMovie.TvSeries,
       );
 
   Map<String, dynamic> toJson() => {
@@ -41,17 +40,16 @@ class MovieTable extends Equatable {
         'title': title,
         'posterPath': posterPath,
         'overview': overview,
-        'type':TypeMovie.Movie.toString()
+        'type': TypeMovie.Movie.toString()
       };
 
   Movie toEntity() => Movie.watchlist(
-        id: id,
-        overview: overview,
-        posterPath: posterPath,
-        title: title,
-        type: type.toString()
-      );
+      id: id,
+      overview: overview,
+      posterPath: posterPath,
+      title: title,
+      type: type.toString());
 
   @override
-  List<Object?> get props => [id, title, posterPath, overview,type];
+  List<Object?> get props => [id, title, posterPath, overview, type];
 }

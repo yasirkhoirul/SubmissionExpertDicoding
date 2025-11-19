@@ -23,9 +23,9 @@ class TvCardList extends StatelessWidget {
               MovieDetailPage.ROUTE_NAME,
               arguments: movie.id,
             );
-            
-          }else{
-            Navigator.pushNamed(context, TvSeriesDetailPage.ROOUTE_NAME,arguments: movie.id.toDouble());
+          } else {
+            Navigator.pushNamed(context, TvSeriesDetailPage.ROOUTE_NAME,
+                arguments: movie.id.toDouble());
           }
         },
         child: Stack(
@@ -55,7 +55,9 @@ class TvCardList extends StatelessWidget {
                     ),
                     SizedBox(height: 16),
                     Text(
-                      movie.type == 'TypeMovie.Movie'?"Type : Movie":"Type : Tv",
+                      movie.type == 'TypeMovie.Movie'
+                          ? "Type : Movie"
+                          : "Type : Tv",
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),

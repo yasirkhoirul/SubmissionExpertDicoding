@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/presentation/pages/movie_detail_page.dart';
 import 'package:ditonton/presentation/provider/tv_series_detail_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -106,17 +105,20 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
                                     ),
                                     FilledButton(
                                         onPressed: () {
-                                          if(value.isAddedWatchlist){
-                                            value.removeWatchLIst(value.datadetail!);
-                                          }else{
-                                          value.addWatchlist(value.datadetail!);
-
+                                          if (value.isAddedWatchlist) {
+                                            value.removeWatchLIst(
+                                                value.datadetail!);
+                                          } else {
+                                            value.addWatchlist(
+                                                value.datadetail!);
                                           }
                                         },
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            Icon(value.isAddedWatchlist?Icons.check:Icons.add),
+                                            Icon(value.isAddedWatchlist
+                                                ? Icons.check
+                                                : Icons.add),
                                             Text("Add Wishlist")
                                           ],
                                         )),
@@ -179,12 +181,16 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
                                                                       if (!context
                                                                           .mounted)
                                                                         return;
-                                                                        Logger().d("ditekan ${value
+                                                                      Logger().d(
+                                                                          "ditekan ${value.datarekomendasi![index].id}");
+                                                                      Navigator.pushReplacementNamed(
+                                                                          context,
+                                                                          TvSeriesDetailPage
+                                                                              .ROOUTE_NAME,
+                                                                          arguments: value
                                                                               .datarekomendasi![index]
-                                                                              .id}");
-                                                                      Navigator.pushReplacementNamed(context,TvSeriesDetailPage.ROOUTE_NAME ,arguments:value
-                                                                              .datarekomendasi![index]
-                                                                              .id.toDouble() );
+                                                                              .id
+                                                                              .toDouble());
                                                                     },
                                                                   );
                                                                 },
@@ -231,7 +237,11 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
             ),
           ));
         } else {
-          return Container(child: Center(child: Text("ada sesuatu yang salah ${value.status}"),),);
+          return Container(
+            child: Center(
+              child: Text("ada sesuatu yang salah ${value.status}"),
+            ),
+          );
         }
       }),
     );

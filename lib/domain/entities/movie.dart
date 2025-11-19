@@ -16,15 +16,14 @@ class Movie extends Equatable {
     required this.video,
     required this.voteAverage,
     required this.voteCount,
-  }):type = TypeMovie.Movie.toString();
+  }) : type = TypeMovie.Movie.toString();
 
-  Movie.watchlist({
-    required this.id,
-    required this.overview,
-    required this.posterPath,
-    required this.title,
-    required this.type
-  });
+  Movie.watchlist(
+      {required this.id,
+      required this.overview,
+      required this.posterPath,
+      required this.title,
+      required this.type});
 
   String type;
   bool? adult;

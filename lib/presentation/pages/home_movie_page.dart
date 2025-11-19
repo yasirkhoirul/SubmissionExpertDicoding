@@ -1,18 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/domain/entities/movie.dart';
+import 'package:ditonton/domain/entities/tvseries.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/movie_detail_page.dart';
 import 'package:ditonton/presentation/pages/popular_movies_page.dart';
 import 'package:ditonton/presentation/pages/search_page.dart';
 import 'package:ditonton/presentation/pages/top_rated_movies_page.dart';
+import 'package:ditonton/presentation/pages/tv_popular.dart';
 import 'package:ditonton/presentation/pages/tv_series_detail_page.dart';
+import 'package:ditonton/presentation/pages/tv_top_rated.dart';
 import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
 import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/presentation/provider/tv_list_notifier.dart';
+import 'package:ditonton/presentation/provider/tv_popular_notifier.dart';
+import 'package:ditonton/presentation/provider/tv_top_rated_notifier.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
 class HomeMoviePage extends StatefulWidget {
@@ -31,6 +35,8 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         ..fetchTopRatedMovies();
 
       context.read<TvListNotifier>().getListTvOnAiring();
+      context.read<TvPopularNotifier>().getPopular();
+      context.read<TvTopRatedNotifier>().getToprated();
     });
   }
 
@@ -152,43 +158,9 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               buildHeadingTv(),
               Consumer<TvListNotifier>(
                 builder: (context, value, child) {
-                  Logger().d(value.status);
                   if (value.status == RequestState.Loaded) {
-                    return Container(
-                      height: 200,
-                      child: ListView.builder(
-                        itemCount: value.dataTvSeriesOnAiring.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                  context,
-                                  TvSeriesDetailPage.ROOUTE_NAME,
-                                  arguments:
-                                      value.dataTvSeriesOnAiring[index].id,
-                                );
-                              },
-                              child: ClipRRect(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(16)),
-                                child: CachedNetworkImage(
-                                  imageUrl:
-                                      '$BASE_IMAGE_URL${value.dataTvSeriesOnAiring[index].poster_path}',
-                                  placeholder: (context, url) => Center(
-                                    child: Center(
-                                        child: CircularProgressIndicator()),
-                                  ),
-                                  errorWidget: (context, url, error) =>
-                                      Icon(Icons.error),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
+                    return TvOnAiring(
+                      data: value.dataTvSeriesOnAiring,
                     );
                   } else if (value.status == RequestState.Loading) {
                     return Center(child: CircularProgressIndicator());
@@ -196,7 +168,43 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                     return Text("failed");
                   }
                 },
-              )
+              ),
+              _buildSubHeading(
+                  title: "Top Rated",
+                  onTap: () {
+                    Navigator.pushNamed(context, TvTopRated.ROUTE_NAME);
+                  }),
+              Consumer<TvTopRatedNotifier>(
+                builder: (context, value, child) {
+                  if (value.status == RequestState.Loaded) {
+                    return TvOnAiring(
+                      data: value.dataTopRated,
+                    );
+                  } else if (value.status == RequestState.Loading) {
+                    return Center(child: CircularProgressIndicator());
+                  } else {
+                    return Text("failed");
+                  }
+                },
+              ),
+              _buildSubHeading(
+                  title: "Popular",
+                  onTap: () {
+                    Navigator.pushNamed(context, TvPopular.ROUTE_NAME);
+                  }),
+              Consumer<TvPopularNotifier>(
+                builder: (context, value, child) {
+                  if (value.status == RequestState.Loaded) {
+                    return TvOnAiring(
+                      data: value.dataPopular,
+                    );
+                  } else if (value.status == RequestState.Loading) {
+                    return Center(child: CircularProgressIndicator());
+                  } else {
+                    return Text("failed");
+                  }
+                },
+              ),
             ],
           ),
         ),
@@ -263,6 +271,50 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class TvOnAiring extends StatelessWidget {
+  TvOnAiring({
+    required this.data,
+    Key? key,
+  }) : super(key: key);
+
+  final List<TvseriesEntity> data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      child: ListView.builder(
+        itemCount: data.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  TvSeriesDetailPage.ROOUTE_NAME,
+                  arguments: data[index].id,
+                );
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(16)),
+                child: CachedNetworkImage(
+                  imageUrl: '$BASE_IMAGE_URL${data[index].poster_path}',
+                  placeholder: (context, url) => Center(
+                    child: Center(child: CircularProgressIndicator()),
+                  ),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

@@ -12,5 +12,3 @@ TvResponse _$TvResponseFromJson(Map<String, dynamic> json) => TvResponse(
           ?.map((e) => TvModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
-
-

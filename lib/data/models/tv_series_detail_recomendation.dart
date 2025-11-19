@@ -1,4 +1,3 @@
-
 import 'package:ditonton/domain/entities/tv_series_recomendation.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -10,15 +9,12 @@ class TvSeriesDetailRecomendation extends Equatable {
   final int page;
   final List<TvSeriesDetailRecomendationItem> results;
   TvSeriesDetailRecomendation(this.page, this.results);
-  
-  factory TvSeriesDetailRecomendation.fromJson(Map<String,dynamic> json) => _$TvSeriesDetailRecomendationFromJson(json);
 
-  
+  factory TvSeriesDetailRecomendation.fromJson(Map<String, dynamic> json) =>
+      _$TvSeriesDetailRecomendationFromJson(json);
+
   @override
-  List<Object?> get props => [
-    page,
-    results
-  ];
+  List<Object?> get props => [page, results];
 }
 
 @JsonSerializable()
@@ -55,11 +51,13 @@ class TvSeriesDetailRecomendationItem extends Equatable {
       this.vote_count,
       this.origin_country);
 
-  factory TvSeriesDetailRecomendationItem.fromJson(Map<String,dynamic> json) => _$TvSeriesDetailRecomendationItemFromJson(json);
+  factory TvSeriesDetailRecomendationItem.fromJson(Map<String, dynamic> json) =>
+      _$TvSeriesDetailRecomendationItemFromJson(json);
 
-  TvSeriesRecomendationitem toentity(){
-    return TvSeriesRecomendationitem(path: poster_path??'', id: id);
+  TvSeriesRecomendationitem toentity() {
+    return TvSeriesRecomendationitem(path: poster_path ?? '', id: id);
   }
+
   @override
   List<Object?> get props => [
         adult,

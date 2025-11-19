@@ -7,7 +7,7 @@ class SearchWatchlistTv {
   final TvRepositories tvrepo;
   SearchWatchlistTv({required this.tvrepo});
 
-  Future <Either<Failure,List<TvseriesEntity>>> excute(String data){
+  Future<Either<Failure, List<TvseriesEntity>>> excute(String data) {
     return tvrepo.getSearch(data);
   }
 }

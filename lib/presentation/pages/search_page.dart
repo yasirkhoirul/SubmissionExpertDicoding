@@ -60,104 +60,110 @@ class _SearchPageState extends State<SearchPage> {
               'Search Result',
               style: kHeading6,
             ),
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                        child: TextButton(
-                      child: Text("Movie", textAlign: TextAlign.center),
-                      onPressed: () {
-                        pageController.jumpToPage(
-                          0,
-                        );
-                      },
-                    )),
-                    Expanded(
-                        child: TextButton(
-                      child: Text("Tv Series", textAlign: TextAlign.center),
-                      onPressed: () {
-                        pageController.jumpToPage(
-                          1,
-                        );
-                      },
-                    )),
-                  ],
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Center(
-                        child: SmoothPageIndicator(
-                          controller: pageController,
-                          count: 2,
-                          effect: WormEffect(
-                              
-                              dotWidth: MediaQuery.of(context).size.width * 0.45,
-                              dotHeight: 4),
+            Container(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                          child: TextButton(
+                        child: Text("Movie", textAlign: TextAlign.center),
+                        onPressed: () {
+                          pageController.jumpToPage(
+                            0,
+                          );
+                        },
+                      )),
+                      Expanded(
+                          child: TextButton(
+                        child: Text("Tv Series", textAlign: TextAlign.center),
+                        onPressed: () {
+                          pageController.jumpToPage(
+                            1,
+                          );
+                        },
+                      )),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Center(
+                          child: SmoothPageIndicator(
+                            controller: pageController,
+                            count: 2,
+                            effect: WormEffect(
+                                dotWidth:
+                                    MediaQuery.of(context).size.width * 0.45,
+                                dotHeight: 4),
+                          ),
                         ),
-                      ),
-                    )
-                  ],
-                ),
-              ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
             Expanded(
-              child: PageView(
-                controller: pageController,
-                children: [
-                  Consumer<MovieSearchNotifier>(
-                    builder: (context, data, child) {
-                      if (data.state == RequestState.Loading) {
+              child: Container(
+                child: PageView(
+                  controller: pageController,
+                  children: [
+                    Consumer<MovieSearchNotifier>(
+                      builder: (context, data, child) {
+                        if (data.state == RequestState.Loading) {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else if (data.state == RequestState.Loaded) {
+                          final result = data.searchResult;
+                          return ListView.builder(
+                            padding: const EdgeInsets.all(8),
+                            itemBuilder: (context, index) {
+                              final movie = data.searchResult[index];
+                              if (index == 0) {
+                                return Column(
+                                  children: [Text("Movie"), MovieCard(movie)],
+                                );
+                              } else {
+                                return MovieCard(movie);
+                              }
+                            },
+                            itemCount: result.length,
+                          );
+                        } else {
+                          return Container();
+                        }
+                      },
+                    ),
+                    Consumer<TvSearchNotifier>(
+                        builder: (context, values, child) {
+                      Logger().d(values.status);
+                      if (values.status == RequestState.Loading) {
                         return Center(
                           child: CircularProgressIndicator(),
                         );
-                      } else if (data.state == RequestState.Loaded) {
-                        final result = data.searchResult;
+                      } else if (values.status == RequestState.Loaded) {
                         return ListView.builder(
-                          padding: const EdgeInsets.all(8),
-                          itemBuilder: (context, index) {
-                            final movie = data.searchResult[index];
-                            if (index == 0) {
-                              return Column(
-                                children: [Text("Movie"), MovieCard(movie)],
-                              );
-                            } else {
-                              return MovieCard(movie);
-                            }
-                          },
-                          itemCount: result.length,
+                          itemCount: values.data!.length,
+                          itemBuilder: (context, index) =>
+                              TvCardList(values.data![index]),
+                        );
+                      } else if (values.status == RequestState.Error) {
+                        return Center(
+                          child: Text(values.message),
                         );
                       } else {
-                        return Expanded(
-                          child: Container(),
-                        );
-                      }
-                    },
-                  ),
-                  Consumer<TvSearchNotifier>(
-                    builder: (context,values,child) {
-                      Logger().d(values.status);
-                      if (values.status == RequestState.Loading) {
-                        return Center(child:  CircularProgressIndicator(),);
-                      }else if(values.status == RequestState.Loaded){
-                        return ListView.builder(
-                        itemCount: values.data!.length,
-                        itemBuilder: (context, index) => TvCardList(values.data![index]),
-                      );
-                      }else if(values.status == RequestState.Error){
-                        return Center(child: Text(values.message),);
-                      }else{
                         return Container();
                       }
-                    }
-                  )
-                ],
+                    })
+                  ],
+                ),
               ),
             ),
           ],

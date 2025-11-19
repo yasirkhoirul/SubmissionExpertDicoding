@@ -269,4 +269,3 @@ class Spoken_languages extends Equatable {
   @override
   List<Object?> get props => [english_name, iso_639_1, name];
 }
-

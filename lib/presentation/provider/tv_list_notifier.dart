@@ -1,4 +1,3 @@
-
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/tvseries.dart';
 import 'package:ditonton/domain/usecases/get_tv_on_airing.dart';

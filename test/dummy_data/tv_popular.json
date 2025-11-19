@@ -1,0 +1,51 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/2fOKVDoc2O3eZmBZesWPuE5kgPN.jpg",
+            "genre_ids": [
+                18,
+                9648
+            ],
+            "id": 200875,
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "IT: Welcome to Derry",
+            "overview": "In 1962, a couple with their son move to Derry, Maine just as a young boy disappears. With their arrival, very bad things begin to happen in the town.",
+            "popularity": 377.2727,
+            "poster_path": "/nyy3BITeIjviv6PFIXtqvc8i6xi.jpg",
+            "first_air_date": "2025-10-26",
+            "name": "IT: Welcome to Derry",
+            "vote_average": 8.0,
+            "vote_count": 407
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/9P4IIMYY3HifqeruZq0ZZ9g7YUi.jpg",
+            "genre_ids": [
+                10765,
+                9648,
+                10759
+            ],
+            "id": 66732,
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Stranger Things",
+            "overview": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.",
+            "popularity": 276.3121,
+            "poster_path": "/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg",
+            "first_air_date": "2016-07-15",
+            "name": "Stranger Things",
+            "vote_average": 8.594,
+            "vote_count": 19011
+        }       
+        
+    ],
+    "total_pages": 10445,
+    "total_results": 208887
+}

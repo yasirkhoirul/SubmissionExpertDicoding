@@ -48,6 +48,7 @@ class DatabaseHelper {
     final db = await database;
     return await db!.insert(_tblWatchlist, movie.toJson());
   }
+
   Future<int> insertWatchlisttv(TvSeriesTable tv) async {
     Logger().d("ditambahkan sebagai json${tv.toJson()}");
     final db = await database;
@@ -62,7 +63,7 @@ class DatabaseHelper {
       whereArgs: [movie.id],
     );
   }
-  
+
   Future<int> removeWatchlistTv(TvSeriesTable tv) async {
     final db = await database;
     return await db!.delete(
@@ -71,7 +72,6 @@ class DatabaseHelper {
       whereArgs: [tv.id],
     );
   }
-  
 
   Future<Map<String, dynamic>?> getMovieById(int id) async {
     final db = await database;

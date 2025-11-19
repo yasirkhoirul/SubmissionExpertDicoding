@@ -7,7 +7,7 @@ class SaveWatchlistTv {
   final TvRepositories tvrepo;
   SaveWatchlistTv({required this.tvrepo});
 
-  Future<Either<Failure,String>> execute(TvSeriesDetail tv){
+  Future<Either<Failure, String>> execute(TvSeriesDetail tv) {
     return tvrepo.saveWatchlist(tv);
   }
 }

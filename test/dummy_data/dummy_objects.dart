@@ -4,6 +4,7 @@ import 'package:ditonton/data/models/movie_table.dart';
 import 'package:ditonton/data/models/tv_detail_model.dart';
 import 'package:ditonton/data/models/tv_model.dart';
 import 'package:ditonton/data/models/tv_response.dart';
+import 'package:ditonton/data/models/tv_series_table.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
@@ -58,13 +59,30 @@ final testMovieTable = MovieTable(
   overview: 'overview',
   type: TypeMovie.Movie
 );
+final testTv = TvSeriesTable(
+  1,
+  'title',
+  'posterPath',
+  'overview',
+  TypeMovie.TvSeries
+);
 
 final testMovieMap = {
   'id': 1,
   'overview': 'overview',
   'posterPath': 'posterPath',
   'title': 'title',
+  'type': "TypeMovie.Movie"
 };
+
+final testTvmap = {
+  'id': 1,
+  'overview': 'overview',
+  'posterPath': 'posterPath',
+  'title': 'title',
+  'type': "TypeMovie.TvSeries"
+};
+
 
 final listTvEntity = [
   TvseriesEntity(

@@ -6,9 +6,8 @@ import 'package:ditonton/domain/repositories/tv_repositories.dart';
 class GetTvSeriesDetail {
   GetTvSeriesDetail(this.tvrepo);
   final TvRepositories tvrepo;
-  
 
-  Future<Either<Failure,TvSeriesDetail>> execute(int id){
+  Future<Either<Failure, TvSeriesDetail>> execute(int id) {
     return tvrepo.getDetail(id);
   }
 }
