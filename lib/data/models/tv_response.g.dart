@@ -12,3 +12,9 @@ TvResponse _$TvResponseFromJson(Map<String, dynamic> json) => TvResponse(
           ?.map((e) => TvModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
+
+Map<String, dynamic> _$TvResponseToJson(TvResponse instance) =>
+    <String, dynamic>{
+      'page': instance.page,
+      'results': instance.results,
+    };

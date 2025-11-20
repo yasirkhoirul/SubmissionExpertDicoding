@@ -7,19 +7,19 @@ part 'tv_model.g.dart';
 @JsonSerializable()
 class TvModel extends Equatable {
   final bool adult;
-  final String backdrop_path;
+  final String? backdrop_path;
   final List<int> genre_ids;
   final double id;
   final List<String> origin_country;
-  final String original_language;
-  final String original_name;
-  final String overview;
-  final double popularity;
-  final String poster_path;
-  final String first_air_date;
-  final String name;
-  final double vote_average;
-  final int vote_count;
+  final String? original_language;
+  final String? original_name;
+  final String? overview;
+  final double? popularity;
+  final String? poster_path;
+  final String? first_air_date;
+  final String? name;
+  final double? vote_average;
+  final int? vote_count;
 
   TvModel(
       this.adult,

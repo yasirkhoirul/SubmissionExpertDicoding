@@ -5,6 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:ditonton/common/exception.dart';
 import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/data/models/tv_detail_model.dart';
+import 'package:ditonton/data/models/tv_response.dart';
 import 'package:ditonton/data/models/tv_series_detail_recomendation.dart';
 import 'package:ditonton/data/models/tv_series_table.dart';
 import 'package:ditonton/data/repositories/tv_repositories_impl.dart';
@@ -303,6 +304,18 @@ void main() {
       verify(mockTvLoaclDataSource.insertWatchlist(data));
 
       expect(result, equals(Left(DatabaseFailure("Failed to add watchlist"))));
+    });
+  });
+
+  group("get Search", (){
+    final data= readJson("dummy_data/search.json");
+    final dataMap = jsonDecode(data);
+    test("testing searching", ()async{
+
+      when(mockdatasource.searchtv('')).thenAnswer((realInvocation) async => TvResponse.fromJson(dataMap),);
+      await tvRepositories.getSearch(''); 
+
+      verify(mockdatasource.searchtv('')).called(1);
     });
   });
 }

@@ -37,8 +37,6 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
     return Scaffold(
       body: Consumer<TvSeriesDetailNotifier>(builder: (context, value, child) {
         if (value.status == RequestState.Loading) {
-          Logger().d(value.statusrecomendation);
-          Logger().d(value.messagerek);
           return SafeArea(
               child: Center(
             child: CircularProgressIndicator(),
@@ -143,7 +141,7 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
                                       "Overview",
                                       style: kHeading5,
                                     ),
-                                    Flexible(
+                                    Expanded(
                                         child:
                                             Text(value.datadetail!.overview)),
                                     SizedBox(
