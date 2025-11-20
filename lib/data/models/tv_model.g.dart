@@ -27,19 +27,3 @@ TvModel _$TvModelFromJson(Map<String, dynamic> json) => TvModel(
       (json['vote_count'] as num?)?.toInt(),
     );
 
-Map<String, dynamic> _$TvModelToJson(TvModel instance) => <String, dynamic>{
-      'adult': instance.adult,
-      'backdrop_path': instance.backdrop_path,
-      'genre_ids': instance.genre_ids,
-      'id': instance.id,
-      'origin_country': instance.origin_country,
-      'original_language': instance.original_language,
-      'original_name': instance.original_name,
-      'overview': instance.overview,
-      'popularity': instance.popularity,
-      'poster_path': instance.poster_path,
-      'first_air_date': instance.first_air_date,
-      'name': instance.name,
-      'vote_average': instance.vote_average,
-      'vote_count': instance.vote_count,
-    };

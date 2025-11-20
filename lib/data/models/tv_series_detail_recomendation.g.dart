@@ -16,12 +16,6 @@ TvSeriesDetailRecomendation _$TvSeriesDetailRecomendationFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$TvSeriesDetailRecomendationToJson(
-        TvSeriesDetailRecomendation instance) =>
-    <String, dynamic>{
-      'page': instance.page,
-      'results': instance.results,
-    };
 
 TvSeriesDetailRecomendationItem _$TvSeriesDetailRecomendationItemFromJson(
         Map<String, dynamic> json) =>
@@ -46,23 +40,3 @@ TvSeriesDetailRecomendationItem _$TvSeriesDetailRecomendationItemFromJson(
           .map((e) => e as String)
           .toList(),
     );
-
-Map<String, dynamic> _$TvSeriesDetailRecomendationItemToJson(
-        TvSeriesDetailRecomendationItem instance) =>
-    <String, dynamic>{
-      'adult': instance.adult,
-      'backdrop_path': instance.backdrop_path,
-      'id': instance.id,
-      'name': instance.name,
-      'original_language': instance.original_language,
-      'original_name': instance.original_name,
-      'overview': instance.overview,
-      'poster_path': instance.poster_path,
-      'media_type': instance.media_type,
-      'genre_ids': instance.genre_ids,
-      'popularity': instance.popularity,
-      'first_air_date': instance.first_air_date,
-      'vote_average': instance.vote_average,
-      'vote_count': instance.vote_count,
-      'origin_country': instance.origin_country,
-    };
