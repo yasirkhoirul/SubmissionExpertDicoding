@@ -16,7 +16,6 @@ TvSeriesDetailRecomendation _$TvSeriesDetailRecomendationFromJson(
           .toList(),
     );
 
-
 TvSeriesDetailRecomendationItem _$TvSeriesDetailRecomendationItemFromJson(
         Map<String, dynamic> json) =>
     TvSeriesDetailRecomendationItem(

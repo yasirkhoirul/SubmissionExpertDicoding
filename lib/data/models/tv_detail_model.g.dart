@@ -73,8 +73,6 @@ CreatedBy _$CreatedByFromJson(Map<String, dynamic> json) => CreatedBy(
       json['profile_path'] as String?,
     );
 
-
-
 Episode _$EpisodeFromJson(Map<String, dynamic> json) => Episode(
       (json['id'] as num).toInt(),
       json['name'] as String,
@@ -91,15 +89,12 @@ Episode _$EpisodeFromJson(Map<String, dynamic> json) => Episode(
       json['still_path'] as String?,
     );
 
-
-
 Network _$NetworkFromJson(Map<String, dynamic> json) => Network(
       (json['id'] as num).toInt(),
       json['logo_path'] as String?,
       json['name'] as String,
       json['origin_country'] as String,
     );
-
 
 Production_companies _$Production_companiesFromJson(
         Map<String, dynamic> json) =>
@@ -127,7 +122,6 @@ Season _$SeasonFromJson(Map<String, dynamic> json) => Season(
       (json['season_number'] as num).toInt(),
       (json['vote_average'] as num).toDouble(),
     );
-
 
 Spoken_languages _$Spoken_languagesFromJson(Map<String, dynamic> json) =>
     Spoken_languages(

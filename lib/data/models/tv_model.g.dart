@@ -26,4 +26,3 @@ TvModel _$TvModelFromJson(Map<String, dynamic> json) => TvModel(
       (json['vote_average'] as num?)?.toDouble(),
       (json['vote_count'] as num?)?.toInt(),
     );
-
