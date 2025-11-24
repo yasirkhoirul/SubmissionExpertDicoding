@@ -1,0 +1,122 @@
+{
+    "adult": false,
+    "backdrop_path": "/2fOKVDoc2O3eZmBZesWPuE5kgPN.jpg",
+    "created_by": [
+        {
+            "id": 1113116,
+            "credit_id": "682cac47989cf65c7edb32d8",
+            "name": "Andy Muschietti",
+            "original_name": "Andy Muschietti",
+            "gender": 2,
+            "profile_path": "/4ndnP2NNavhfGtJqihD4FVDsYMY.jpg"
+        }
+        
+    ],
+    "episode_run_time": [],
+    "first_air_date": "2025-10-26",
+    "genres": [
+        {
+            "id": 18,
+            "name": "Drama"
+        },
+        {
+            "id": 9648,
+            "name": "Mystery"
+        }
+    ],
+    "homepage": "https://www.hbo.com/content/it-welcome-to-derry",
+    "id": 200875,
+    "in_production": true,
+    "languages": [
+        "en"
+    ],
+    "last_air_date": "2025-11-09",
+    "last_episode_to_air": {
+        "id": 6548352,
+        "name": "Now You See It",
+        "overview": "As Leroy, Pauly, and Dick search for a new dig site, the kids attempt to get visual proof of the phenomena they've been experiencing.",
+        "vote_average": 4.886,
+        "vote_count": 22,
+        "air_date": "2025-11-09",
+        "episode_number": 3,
+        "episode_type": "standard",
+        "production_code": "",
+        "runtime": 59,
+        "season_number": 1,
+        "show_id": 200875,
+        "still_path": "/n4BGtiqwoFYd5ZX3UmdupeENcq.jpg"
+    },
+    "name": "IT: Welcome to Derry",
+    "next_episode_to_air": {
+        "id": 6548353,
+        "name": "The Great Swirling Apparatus of Our Planet's Function",
+        "overview": "After their efforts are rejected by Chief Bowers, the kids must deal with their disappointment...and a series of increasingly terrifying experiences. Meanwhile, as General Shaw escalates his efforts to find answers, Charlotte tries to advocate for a reluctant Hank, who worries his secret will get out. Urged on by the Patty Cakes, Marge pulls a mean-spirited prank on Lilly.",
+        "vote_average": 0.0,
+        "vote_count": 0,
+        "air_date": "2025-11-16",
+        "episode_number": 4,
+        "episode_type": "standard",
+        "production_code": "",
+        "runtime": 66,
+        "season_number": 1,
+        "show_id": 200875,
+        "still_path": null
+    },
+    "networks": [
+        {
+            "id": 49,
+            "logo_path": "/tuomPhY2UtuPTqqFnKMVHvSb724.png",
+            "name": "HBO",
+            "origin_country": "US"
+        }
+    ],
+    "number_of_episodes": 8,
+    "number_of_seasons": 1,
+    "origin_country": [
+        "US"
+    ],
+    "original_language": "en",
+    "original_name": "IT: Welcome to Derry",
+    "overview": "In 1962, a couple with their son move to Derry, Maine just as a young boy disappears. With their arrival, very bad things begin to happen in the town.",
+    "popularity": 296.413,
+    "poster_path": "/nyy3BITeIjviv6PFIXtqvc8i6xi.jpg",
+    "production_companies": [
+        {
+            "id": 1957,
+            "logo_path": "/pJJw98MtNFC9cHn3o15G7vaUnnX.png",
+            "name": "Warner Bros. Television",
+            "origin_country": "US"
+        }
+    
+    ],
+    "production_countries": [
+        {
+            "iso_3166_1": "US",
+            "name": "United States of America"
+        }
+    ],
+    "seasons": [
+        {
+            "air_date": "2025-10-26",
+            "episode_count": 8,
+            "id": 291792,
+            "name": "Season 1",
+            "overview": "",
+            "poster_path": "/IFi0kbnVAoEVReaBuhOSj6GBMH.jpg",
+            "season_number": 1,
+            "vote_average": 5.7
+        }
+    ],
+    "spoken_languages": [
+        {
+            "english_name": "English",
+            "iso_639_1": "en",
+            "name": "English"
+        }
+    ],
+    "status": "Returning Series",
+    "tagline": "Go back to where IT all began.",
+    "type": "Scripted",
+    "vote_average": 7.891,
+    "vote_count": 361
+}

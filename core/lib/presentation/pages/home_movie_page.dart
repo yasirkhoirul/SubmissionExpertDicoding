@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/utils/routes.dart';
-import '../../style/textstyle.dart';
-import '../../domain/entities/movie.dart';
+import 'package:core/style/textstyle.dart';
+import 'package:movie/domain/entities/movie.dart';
 import '../../domain/entities/tvseries.dart';
-import '../provider/movie_list_notifier.dart';
+import 'package:movie/presentation/provider/movie_list_notifier.dart';
 import '../../utils/state_enum.dart';
 import '../provider/tv_list_notifier.dart';
 import '../provider/tv_popular_notifier.dart';

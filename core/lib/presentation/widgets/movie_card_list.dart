@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/utils/routes.dart';
 import '../../style/textstyle.dart';
 import '../../utils/state_enum.dart';
-import '../../domain/entities/movie.dart';
+import 'package:movie/domain/entities/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/web.dart';
 

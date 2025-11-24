@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import '../../utils/failure.dart';
-import '../entities/movie.dart';
-import '../repositories/movie_repository.dart';
+import 'package:movie/domain/entities/movie.dart';
+import 'package:movie/domain/repositories/movie_repository.dart';
 
 class SearchMovies {
   final MovieRepository repository;

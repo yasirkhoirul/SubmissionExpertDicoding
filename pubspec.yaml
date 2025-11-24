@@ -30,6 +30,8 @@ dependencies:
   core:
     path: core
 
+  movie:
+    path: movie
   
 
   http: ^1.2.2

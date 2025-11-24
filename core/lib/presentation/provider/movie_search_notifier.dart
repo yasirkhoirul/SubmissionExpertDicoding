@@ -1,5 +1,5 @@
 import '../../utils/state_enum.dart';
-import '../../domain/entities/movie.dart';
+import 'package:movie/domain/entities/movie.dart';
 import '../../domain/usecases/search_movies.dart';
 import 'package:flutter/foundation.dart';
 
