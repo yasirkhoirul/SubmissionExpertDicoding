@@ -23,6 +23,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  about: 
+    path: about
+
+  core:
+    path: core
+
+  
 
   http: ^1.2.2
   provider: ^6.1.2
@@ -37,6 +45,7 @@ dependencies:
   json_annotation: ^4.9.0
   logger: ^2.6.2
   smooth_page_indicator: ^1.2.1
+
 
 dev_dependencies:
   mockito: ^5.0.8
