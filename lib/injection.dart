@@ -1,4 +1,6 @@
 import 'package:core/data/datasources/db/database_helper.dart';
+import 'package:core/presentation/bloc/search_bloc/search_bloc.dart';
+import 'package:core/presentation/bloc/search_tv_bloc/bloc/search_tv_bloc.dart';
 import 'package:movie/data/datasources/movie_local_data_source.dart';
 import 'package:movie/data/datasources/movie_remote_data_source.dart';
 import 'package:core/data/datasources/tv_loacl_data_source.dart';
@@ -90,8 +92,11 @@ void init() {
     () => TvPopularNotifier(getPopularTv: locator()),
   );
   locator.registerFactory(
-    () => TvTopRatedNotifier(getTopRatedTv: locator()),
+    () => TvTopRatedNotifier(getTopRatedTv: locator<GetTopRatedTv>()),
   );
+
+  locator.registerFactory(() => SearchBloc(searchMovies: locator<SearchMovies>()),);
+  locator.registerFactory(() => SearchTvBloc(locator<SearchWatchlistTv>()),);
 
   locator.registerFactory(
     () => TvSeriesDetailNotifier(

@@ -1,18 +1,17 @@
 
+import 'package:core/presentation/bloc/search_bloc/search_bloc.dart';
+import 'package:core/presentation/bloc/search_tv_bloc/bloc/search_tv_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../style/textstyle.dart';
-import '../../utils/state_enum.dart';
-import '../provider/movie_search_notifier.dart';
-import '../provider/tv_search_notifier.dart';
 import '../widgets/movie_card_list.dart';
 import '../widgets/tv_card_list.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
-import 'package:provider/provider.dart';
+
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SearchPage extends StatefulWidget {
   
-
+  const SearchPage({super.key});
   @override
   State<SearchPage> createState() => _SearchPageState();
 }
@@ -45,9 +44,8 @@ class _SearchPageState extends State<SearchPage> {
           children: [
             TextField(
               onSubmitted: (query) {
-                Provider.of<MovieSearchNotifier>(context, listen: false)
-                    .fetchMovieSearch(query);
-                context.read<TvSearchNotifier>().searchtv(query);
+                context.read<SearchBloc>().add(OnQueryChanged(query));
+                context.read<SearchTvBloc>().add(OnSearchTvQuery(query));
               },
               decoration: InputDecoration(
                 hintText: 'Search title',
@@ -61,7 +59,7 @@ class _SearchPageState extends State<SearchPage> {
               'Search Result',
               style: kHeading6,
             ),
-            Container(
+            SizedBox(
               child: Column(
                 children: [
                   Row(
@@ -111,22 +109,22 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ),
             Expanded(
-              child: Container(
+              child: SizedBox(
                 child: PageView(
                   controller: pageController,
                   children: [
-                    Consumer<MovieSearchNotifier>(
-                      builder: (context, data, child) {
-                        if (data.state == RequestState.Loading) {
+                    BlocBuilder<SearchBloc,SearchState>(
+                      builder: (context, state) {
+                        if (state is SearchLoading) {
                           return Center(
                             child: CircularProgressIndicator(),
                           );
-                        } else if (data.state == RequestState.Loaded) {
-                          final result = data.searchResult;
+                        } else if (state is SearchHasData) {
+                          final result = state.data;
                           return ListView.builder(
                             padding: const EdgeInsets.all(8),
                             itemBuilder: (context, index) {
-                              final movie = data.searchResult[index];
+                              final movie = state.data[index];
                               if (index == 0) {
                                 return Column(
                                   children: [Text("Movie"), MovieCard(movie)],
@@ -137,27 +135,35 @@ class _SearchPageState extends State<SearchPage> {
                             },
                             itemCount: result.length,
                           );
-                        } else {
+                        }else if(state is SearchError){
+                          return SizedBox(
+                            child: Center(
+                              child: Text(state.message),
+                            ),
+                          );
+                        }
+                        
+                         else {
                           return Container();
                         }
                       },
                     ),
-                    Consumer<TvSearchNotifier>(
-                        builder: (context, values, child) {
-                      Logger().d(values.status);
-                      if (values.status == RequestState.Loading) {
+                    BlocBuilder<SearchTvBloc,SearchTvState>(
+                        builder: (context, state) {
+                      if (state is SearchTvLoading) {
                         return Center(
                           child: CircularProgressIndicator(),
                         );
-                      } else if (values.status == RequestState.Loaded) {
+                      } else if (state is SearchTvLoaded) {
+                        final dataTv = state.data;
                         return ListView.builder(
-                          itemCount: values.data!.length,
+                          itemCount: dataTv.length,
                           itemBuilder: (context, index) =>
-                              TvCardList(values.data![index]),
+                              TvCardList(dataTv[index]),
                         );
-                      } else if (values.status == RequestState.Error) {
+                      } else if (state is SearchTvError) {
                         return Center(
-                          child: Text(values.message),
+                          child: Text(state.message),
                         );
                       } else {
                         return Container();

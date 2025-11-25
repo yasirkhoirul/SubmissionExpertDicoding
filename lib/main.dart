@@ -1,9 +1,12 @@
 
 import 'package:about/about.dart';
+import 'package:core/presentation/bloc/search_bloc/search_bloc.dart';
+import 'package:core/presentation/bloc/search_tv_bloc/bloc/search_tv_bloc.dart';
 import 'package:core/style/colors.dart';
 import 'package:core/style/textstyle.dart';
 import 'package:core/utils/routes.dart';
 import 'package:core/utils/utils.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/pages/movie_detail_page.dart';
 import 'package:core/presentation/pages/home_movie_page.dart';
 import 'package:movie/presentation/pages/popular_movies_page.dart';
@@ -75,7 +78,11 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => di.locator<TvPopularNotifier>(),
-        )
+        ),
+        BlocProvider(
+          create: (context) => di.locator<SearchBloc>(),
+        ),
+        BlocProvider(create: (context) => di.locator<SearchTvBloc>(),)
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
