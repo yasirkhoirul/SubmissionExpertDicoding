@@ -1,4 +1,6 @@
 import 'package:core/data/datasources/db/database_helper.dart';
+import 'package:core/presentation/bloc/cubit/get_recomedation_detail_tv_cubit.dart';
+import 'package:core/presentation/bloc/get_detail_tv_series/bloc/get_detail_tv_series_bloc.dart';
 import 'package:core/presentation/bloc/search_bloc/search_bloc.dart';
 import 'package:core/presentation/bloc/search_tv_bloc/bloc/search_tv_bloc.dart';
 import 'package:movie/data/datasources/movie_local_data_source.dart';
@@ -97,6 +99,8 @@ void init() {
 
   locator.registerFactory(() => SearchBloc(searchMovies: locator<SearchMovies>()),);
   locator.registerFactory(() => SearchTvBloc(locator<SearchWatchlistTv>()),);
+  locator.registerFactory(() => GetRecomedationDetailTvCubit(getTvSeriesRecomendation: locator()));
+  locator.registerFactory(() => GetDetailTvSeriesBloc(locator(),locator(),getWatchListStatus: locator(),removeWatchlistTv: locator()));
 
   locator.registerFactory(
     () => TvSeriesDetailNotifier(

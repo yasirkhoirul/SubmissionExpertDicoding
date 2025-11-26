@@ -1,13 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:core/presentation/bloc/cubit/get_recomedation_detail_tv_cubit.dart';
+import 'package:core/presentation/bloc/get_detail_tv_series/bloc/get_detail_tv_series_bloc.dart';
 import 'package:core/utils/routes.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../style/textstyle.dart';
 import '../../style/colors.dart';
 import '../../utils/state_enum.dart';
-import '../provider/tv_series_detail_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:logger/logger.dart';
-import 'package:provider/provider.dart';
 
 class TvSeriesDetailPage extends StatefulWidget {
   
@@ -26,10 +27,12 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
       (timeStamp) {
         if (!context.mounted) return;
         Logger().d("memuat halaman dengan id ${widget.id}");
-        context.read<TvSeriesDetailNotifier>().getDetail(widget.id.toInt());
-        context
-            .read<TvSeriesDetailNotifier>()
-            .getRecomendation(widget.id.toInt());
+        // context.read<TvSeriesDetailNotifier>().getDetail(widget.id.toInt());
+        // context
+        //     .read<TvSeriesDetailNotifier>()
+        //     .getRecomendation(widget.id.toInt());
+        context.read<GetDetailTvSeriesBloc>().add(OnDetailTvSeriesE(widget.id.toInt()));
+        context.read<GetRecomedationDetailTvCubit>().getRecomendation(widget.id.toInt());
       },
     );
   }
@@ -37,18 +40,19 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<TvSeriesDetailNotifier>(builder: (context, value, child) {
-        if (value.status == RequestState.Loading) {
+      body: BlocBuilder<GetDetailTvSeriesBloc,GetDetailTvSeriesState>(builder: (context, state) {
+        if (state.tvseriesstatus == RequestState.Loading) {
           return SafeArea(
               child: Center(
             child: CircularProgressIndicator(),
           ));
-        } else if (value.status == RequestState.Error) {
+        } else if (state.tvseriesstatus == RequestState.Error) {
           return SafeArea(
               child: Center(
-            child: Text("error ${value.message}"),
+            child: Text("error ${state.detailmessage}"),
           ));
-        } else if (value.status == RequestState.Loaded) {
+        } else if (state.tvseriesstatus == RequestState.Loaded) {
+          final data = state.tvSeriesDetail;
           return SafeArea(
               child: Center(
             child: Stack(
@@ -58,7 +62,7 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
                   child: CachedNetworkImage(
                     width: MediaQuery.of(context).size.width,
                     imageUrl:
-                        "https://image.tmdb.org/t/p/w500/${value.datadetail!.poster_path}",
+                        "https://image.tmdb.org/t/p/w500/${data!.poster_path}",
                     errorWidget: (context, url, error) => Icon(Icons.error),
                     placeholder: (context, url) => Center(
                       child: CircularProgressIndicator(),
@@ -91,22 +95,21 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    value.datadetail!.name,
+                                    data.name,
                                     style: kHeading5,
                                   ),
                                   FilledButton(
                                       onPressed: () {
-                                        if (value.isAddedWatchlist) {
-                                          value.removeWatchLIst(
-                                              value.datadetail!);
+                                        if (state.watchliststatus) {
+                                          context.read<GetDetailTvSeriesBloc>().add(OnRemoveWatchListTv(data));
                                         } else {
-                                          value.addWatchlist(value.datadetail!);
+                                          context.read<GetDetailTvSeriesBloc>().add(OnAddWatchListTv(data));
                                         }
                                       },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          Icon(value.isAddedWatchlist
+                                          Icon(state.watchliststatus
                                               ? Icons.check
                                               : Icons.add),
                                           Text("Add Wishlist")
@@ -121,9 +124,9 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
                                           color: kMikadoYellow,
                                         ),
                                         itemCount: 5,
-                                        rating: value.datadetail!.rating / 2,
+                                        rating: data.rating / 2,
                                       ),
-                                      Text("${value.datadetail!.rating}")
+                                      Text("${data.rating}")
                                     ],
                                   ),
                                   SizedBox(
@@ -134,7 +137,7 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
                                     style: kHeading5,
                                   ),
                                   Expanded(
-                                      child: Text(value.datadetail!.overview)),
+                                      child: Text(data.overview)),
                                   SizedBox(
                                     height: 5,
                                   ),
@@ -142,14 +145,33 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
                                     "Recomendation",
                                     style: kHeading5,
                                   ),
-                                  value.statusrecomendation ==
-                                          RequestState.Loaded
-                                      ? SizedBox(
+                                  BlocBuilder<GetRecomedationDetailTvCubit,GetRecomedationDetailTvState>(builder: (context, state) {
+                                    if (state is GetRecomendationDetailTvLoading) {
+                                      return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            CircularProgressIndicator()
+                                          ],
+                                        );
+                                    }else if(state is GetRecomendationDetailTvError){
+                                      return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(state.message)
+                                          ],);
+                                    }else if(state is GetRecomendationDetailTvLoaded){
+                                      return SizedBox(
                                           height: 200,
                                           child: ListView.builder(
                                               scrollDirection: Axis.horizontal,
                                               itemCount:
-                                                  value.datarekomendasi!.length,
+                                                  state.data.length,
                                               itemBuilder:
                                                   (context, index) => ClipRRect(
                                                         borderRadius:
@@ -167,12 +189,11 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
                                                                   (timeStamp) {
                                                                     if (!context.mounted)return;
                                                                     Logger().d(
-                                                                        "ditekan ${value.datarekomendasi![index].id}");
+                                                                        "ditekan ${state.data[index].id}");
                                                                     Navigator.pushReplacementNamed(
                                                                         context,
                                                                         routeTvDetail,
-                                                                        arguments: value
-                                                                            .datarekomendasi![index]
+                                                                        arguments: state.data[index]
                                                                             .id
                                                                             .toDouble());
                                                                   },
@@ -181,7 +202,7 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
                                                               child:
                                                                   CachedNetworkImage(
                                                                 imageUrl:
-                                                                    "$BASE_IMAGE_URL${value.datarekomendasi![index].path}",
+                                                                    "$BASE_IMAGE_URL${state.data[index].path}",
                                                                 errorWidget: (context,
                                                                         url,
                                                                         error) =>
@@ -197,16 +218,13 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
                                                               )),
                                                         ),
                                                       )),
-                                        )
-                                      : Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            CircularProgressIndicator()
-                                          ],
-                                        )
+                                        );
+                                    }else{
+                                      return Container();
+                                    }
+                                  },)
+
+                                    
                                 ],
                               ),
                             ),
@@ -237,7 +255,7 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
         } else {
           return SizedBox(
             child: Center(
-              child: Text("ada sesuatu yang salah ${value.status}"),
+              child: Text("ada sesuatu yang salah silahkan kembali"),
             ),
           );
         }

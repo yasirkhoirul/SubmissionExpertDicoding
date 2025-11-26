@@ -1,5 +1,7 @@
 
 import 'package:about/about.dart';
+import 'package:core/presentation/bloc/cubit/get_recomedation_detail_tv_cubit.dart';
+import 'package:core/presentation/bloc/get_detail_tv_series/bloc/get_detail_tv_series_bloc.dart';
 import 'package:core/presentation/bloc/search_bloc/search_bloc.dart';
 import 'package:core/presentation/bloc/search_tv_bloc/bloc/search_tv_bloc.dart';
 import 'package:core/style/colors.dart';
@@ -82,7 +84,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => di.locator<SearchBloc>(),
         ),
-        BlocProvider(create: (context) => di.locator<SearchTvBloc>(),)
+        BlocProvider(create: (context) => di.locator<SearchTvBloc>(),),
+        BlocProvider(create: (context) => di.locator<GetRecomedationDetailTvCubit>(),),
+        BlocProvider(create: (context) => di.locator<GetDetailTvSeriesBloc>(),)
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
