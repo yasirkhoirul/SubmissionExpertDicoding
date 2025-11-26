@@ -1,6 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:core/presentation/bloc/cubit/tv_list_cubit.dart';
+import 'package:core/presentation/bloc/cubit/tv_list_popular_cubit.dart';
+import 'package:core/presentation/bloc/cubit/tv_list_top_rated_cubit.dart';
 import 'package:core/utils/routes.dart';
 import 'package:core/style/textstyle.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/domain/entities/movie.dart';
 import '../../domain/entities/tvseries.dart';
 import 'package:movie/presentation/provider/movie_list_notifier.dart';
@@ -29,9 +33,13 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         ..fetchPopularMovies()
         ..fetchTopRatedMovies();
 
-      context.read<TvListNotifier>().getListTvOnAiring();
-      context.read<TvPopularNotifier>().getPopular();
-      context.read<TvTopRatedNotifier>().getToprated();
+      WidgetsBinding.instance.addPostFrameCallback(
+        (timeStamp) {
+          context.read<TvListCubit>().getListTv();
+          context.read<TvListPopularCubit>().getPopularTvList();
+          context.read<TvListTopRatedCubit>().getToprated();
+        },
+      );
     });
   }
 
@@ -151,13 +159,13 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 }
               }),
               buildHeadingTv(),
-              Consumer<TvListNotifier>(
-                builder: (context, value, child) {
-                  if (value.status == RequestState.Loaded) {
+              BlocBuilder<TvListCubit,TvListState>(
+                builder: (context, state) {
+                  if (state is TvListLoaded) {
                     return TvOnAiring(
-                      data: value.dataTvSeriesOnAiring,
+                      data: state.data,
                     );
-                  } else if (value.status == RequestState.Loading) {
+                  } else if (state is TvListLoading) {
                     return Center(child: CircularProgressIndicator());
                   } else {
                     return Text("failed");
@@ -169,13 +177,13 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                   onTap: () {
                     Navigator.pushNamed(context, routeTopRatedTv);
                   }),
-              Consumer<TvTopRatedNotifier>(
-                builder: (context, value, child) {
-                  if (value.status == RequestState.Loaded) {
+              BlocBuilder<TvListTopRatedCubit,TvListTopRatedState>(
+                builder: (context, state) {
+                  if (state is TvListTopRatedLoaded) {
                     return TvOnAiring(
-                      data: value.dataTopRated,
+                      data: state.data,
                     );
-                  } else if (value.status == RequestState.Loading) {
+                  } else if (state is TvListTopRatedError) {
                     return Center(child: CircularProgressIndicator());
                   } else {
                     return Text("failed");
@@ -187,13 +195,13 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                   onTap: () {
                     Navigator.pushNamed(context, routePopularTv);
                   }),
-              Consumer<TvPopularNotifier>(
-                builder: (context, value, child) {
-                  if (value.status == RequestState.Loaded) {
+               BlocBuilder<TvListPopularCubit,TvListPopularState>(
+                builder: (context, state) {
+                  if (state is TvListPopularLoaded) {
                     return TvOnAiring(
-                      data: value.dataPopular,
+                      data: state.data,
                     );
-                  } else if (value.status == RequestState.Loading) {
+                  } else if (state is TvListPopularLoading) {
                     return Center(child: CircularProgressIndicator());
                   } else {
                     return Text("failed");

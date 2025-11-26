@@ -1,5 +1,8 @@
 import 'package:core/data/datasources/db/database_helper.dart';
 import 'package:core/presentation/bloc/cubit/get_recomedation_detail_tv_cubit.dart';
+import 'package:core/presentation/bloc/cubit/tv_list_cubit.dart';
+import 'package:core/presentation/bloc/cubit/tv_list_popular_cubit.dart';
+import 'package:core/presentation/bloc/cubit/tv_list_top_rated_cubit.dart';
 import 'package:core/presentation/bloc/get_detail_tv_series/bloc/get_detail_tv_series_bloc.dart';
 import 'package:core/presentation/bloc/search_bloc/search_bloc.dart';
 import 'package:core/presentation/bloc/search_tv_bloc/bloc/search_tv_bloc.dart';
@@ -101,6 +104,9 @@ void init() {
   locator.registerFactory(() => SearchTvBloc(locator<SearchWatchlistTv>()),);
   locator.registerFactory(() => GetRecomedationDetailTvCubit(getTvSeriesRecomendation: locator()));
   locator.registerFactory(() => GetDetailTvSeriesBloc(locator(),locator(),getWatchListStatus: locator(),removeWatchlistTv: locator()));
+  locator.registerFactory(() => TvListCubit(getWatchlistTv: locator()),);
+  locator.registerFactory(() => TvListPopularCubit(getPopularTv: locator()),);
+  locator.registerFactory(() => TvListTopRatedCubit(getTopRatedTv: locator()),);
 
   locator.registerFactory(
     () => TvSeriesDetailNotifier(
