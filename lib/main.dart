@@ -12,6 +12,10 @@ import 'package:core/style/textstyle.dart';
 import 'package:core/utils/routes.dart';
 import 'package:core/utils/utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie/presentation/cubit/movie_detail_cubit.dart';
+import 'package:movie/presentation/cubit/popular_movie_cubit.dart';
+import 'package:movie/presentation/cubit/top_rated_movie_cubit.dart';
+import 'package:movie/presentation/cubit/watchlist_movie_cubit.dart';
 import 'package:movie/presentation/pages/movie_detail_page.dart';
 import 'package:core/presentation/pages/home_movie_page.dart';
 import 'package:movie/presentation/pages/popular_movies_page.dart';
@@ -38,8 +42,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
 
-void main() {
-  di.init();
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(MyApp());
 }
 
@@ -92,7 +97,11 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => di.locator<GetDetailTvSeriesBloc>(),),
         BlocProvider(create: (context) => di.locator<TvListCubit>(),),
         BlocProvider(create: (context) => di.locator<TvListTopRatedCubit>(),),
-        BlocProvider(create: (context) => di.locator<TvListPopularCubit>(),)
+        BlocProvider(create: (context) => di.locator<TvListPopularCubit>(),),
+        BlocProvider(create: (context) => di.locator<MovieDetailCubit>(),),
+        BlocProvider(create: (context) => di.locator<PopularMovieCubit>(),),
+        BlocProvider(create: (context) => di.locator<TopRatedMovieCubit>(),),
+        BlocProvider(create: (context) => di.locator<WatchlistMovieCubit>(),)
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

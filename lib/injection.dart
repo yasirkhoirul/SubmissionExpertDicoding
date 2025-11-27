@@ -6,6 +6,7 @@ import 'package:core/presentation/bloc/cubit/tv_list_top_rated_cubit.dart';
 import 'package:core/presentation/bloc/get_detail_tv_series/bloc/get_detail_tv_series_bloc.dart';
 import 'package:core/presentation/bloc/search_bloc/search_bloc.dart';
 import 'package:core/presentation/bloc/search_tv_bloc/bloc/search_tv_bloc.dart';
+import 'package:core/utils/sslpinning.dart';
 import 'package:movie/data/datasources/movie_local_data_source.dart';
 import 'package:movie/data/datasources/movie_remote_data_source.dart';
 import 'package:core/data/datasources/tv_loacl_data_source.dart';
@@ -34,6 +35,10 @@ import 'package:core/domain/usecases/watchlisttvseries/get_watchlist_tv.dart';
 import 'package:core/domain/usecases/watchlisttvseries/remove_watchlist_tv.dart';
 import 'package:core/domain/usecases/watchlisttvseries/save_watchlist_tv.dart';
 import 'package:core/domain/usecases/watchlisttvseries/search_watchlistv.dart';
+import 'package:movie/presentation/cubit/movie_detail_cubit.dart';
+import 'package:movie/presentation/cubit/popular_movie_cubit.dart';
+import 'package:movie/presentation/cubit/top_rated_movie_cubit.dart';
+import 'package:movie/presentation/cubit/watchlist_movie_cubit.dart';
 import 'package:movie/presentation/provider/movie_detail_notifier.dart';
 import 'package:movie/presentation/provider/movie_list_notifier.dart';
 import 'package:core/presentation/provider/movie_search_notifier.dart';
@@ -52,7 +57,7 @@ import 'package:get_it/get_it.dart';
 
 final locator = GetIt.instance;
 
-void init() {
+Future<void> init() async{
   // provider
   locator.registerFactory(
     () => TvListNotifier(getTvOnAiring: locator()),
@@ -107,6 +112,7 @@ void init() {
   locator.registerFactory(() => TvListCubit(getWatchlistTv: locator()),);
   locator.registerFactory(() => TvListPopularCubit(getPopularTv: locator()),);
   locator.registerFactory(() => TvListTopRatedCubit(getTopRatedTv: locator()),);
+  locator.registerFactory(() => MovieDetailCubit(locator(), locator(), locator(), locator(), locator()));
 
   locator.registerFactory(
     () => TvSeriesDetailNotifier(
@@ -124,6 +130,9 @@ void init() {
         saveWatchlistTv: locator()),
   );
   locator.registerFactory(() => TvSearchNotifier(searchWatchlistTv: locator()));
+  locator.registerFactory( () => PopularMovieCubit(locator()) );
+  locator.registerFactory( () => TopRatedMovieCubit(locator()) );
+  locator.registerFactory( () => WatchlistMovieCubit(locator()) );
   // use case
   locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));
   locator.registerLazySingleton(() => GetPopularMovies(locator()));
@@ -192,5 +201,6 @@ void init() {
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  final sslClient = await getSSLPinningClient();
+  locator.registerLazySingleton<http.Client>(() => sslClient);
 }

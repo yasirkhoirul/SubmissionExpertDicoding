@@ -17,6 +17,7 @@ abstract class TvSeriesRemoteDataSource {
 }
 
 class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
+  
   final http.Client client;
   TvSeriesRemoteDataSourceImpl({required this.client});
   final apikey = "2174d146bb9c0eab47529b2e77d6b526";
