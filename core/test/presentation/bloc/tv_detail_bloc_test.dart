@@ -144,6 +144,13 @@ void main() {
           watchlistmessage: "berhasil disimpan",
           watchliststatus: false,
         ),
+        GetDetailTvSeriesState(
+          detailmessage: "",
+          tvSeriesDetail: null,
+          tvseriesstatus: RequestState.Empty,
+          watchlistmessage: "berhasil disimpan",
+          watchliststatus: true,
+        ),
       ],
     );
     blocTest(

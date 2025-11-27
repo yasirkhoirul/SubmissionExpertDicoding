@@ -9,9 +9,6 @@ import 'package:movie/domain/entities/movie.dart';
 import '../../domain/entities/tvseries.dart';
 import 'package:movie/presentation/provider/movie_list_notifier.dart';
 import '../../utils/state_enum.dart';
-import '../provider/tv_list_notifier.dart';
-import '../provider/tv_popular_notifier.dart';
-import '../provider/tv_top_rated_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

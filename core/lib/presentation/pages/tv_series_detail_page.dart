@@ -32,6 +32,7 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
         //     .read<TvSeriesDetailNotifier>()
         //     .getRecomendation(widget.id.toInt());
         context.read<GetDetailTvSeriesBloc>().add(OnDetailTvSeriesE(widget.id.toInt()));
+        context.read<GetDetailTvSeriesBloc>().add(IsAddedOnWatchList(widget.id.toInt()));
         context.read<GetRecomedationDetailTvCubit>().getRecomendation(widget.id.toInt());
       },
     );
