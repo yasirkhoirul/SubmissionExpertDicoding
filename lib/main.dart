@@ -11,6 +11,10 @@ import 'package:core/style/colors.dart';
 import 'package:core/style/textstyle.dart';
 import 'package:core/utils/routes.dart';
 import 'package:core/utils/utils.dart';
+import 'package:ditonton/firebase_options.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/cubit/movie_detail_cubit.dart';
 import 'package:movie/presentation/cubit/popular_movie_cubit.dart';
@@ -44,6 +48,14 @@ import 'package:ditonton/injection.dart' as di;
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  // 3. Setup Crashlytics (Agar error Flutter tertangkap otomatis)
+  // Menangkap error "fatal" (yang bikin aplikasi keluar)
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+
   await di.init();
   runApp(MyApp());
 }
