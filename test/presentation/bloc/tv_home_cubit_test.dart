@@ -43,7 +43,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Right(datadum));
         return tvListCubit;
       },
-      act: (bloc) => bloc.getListTv(),
+      act: (TvListCubit bloc) => bloc.getListTv(),
       expect: () => [TvListLoading(), TvListLoaded(datadum)],
     );
     blocTest(
@@ -54,7 +54,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Left(ConnectionFailure("fail conec")));
         return tvListCubit;
       },
-      act: (bloc) => bloc.getListTv(),
+      act: (TvListCubit bloc) => bloc.getListTv(),
       expect: () => [TvListLoading(), TvListEror("fail conec")],
     );
     blocTest(
@@ -65,7 +65,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Left(ServerFailure("fail server")));
         return tvListCubit;
       },
-      act: (bloc) => bloc.getListTv(),
+      act: (TvListCubit bloc) => bloc.getListTv(),
       expect: () => [TvListLoading(), TvListEror("fail server")],
     );
     
@@ -77,7 +77,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Right(datadum));
         return tvListTopRatedCubit;
       },
-      act: (bloc) => bloc.getToprated(),
+      act: (TvListTopRatedCubit bloc) => bloc.getToprated(),
       expect: () => [TvListTopRatedLoading(), TvListTopRatedLoaded(datadum)],
     );
     blocTest(
@@ -88,7 +88,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Left(ConnectionFailure("Fail")));
         return tvListTopRatedCubit;
       },
-      act: (bloc) => bloc.getToprated(),
+      act: (TvListTopRatedCubit bloc) => bloc.getToprated(),
       expect: () => [TvListTopRatedLoading(), TvListTopRatedError("Fail")],
     );
     blocTest(
@@ -99,7 +99,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Left(ServerFailure("Fail")));
         return tvListTopRatedCubit;
       },
-      act: (bloc) => bloc.getToprated(),
+      act: (TvListTopRatedCubit bloc) => bloc.getToprated(),
       expect: () => [TvListTopRatedLoading(), TvListTopRatedError("Fail")],
     );
     blocTest(
@@ -110,7 +110,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Right(datadum));
         return tvListPopularCubit;
       },
-      act: (bloc) => bloc.getPopularTvList(),
+      act: (TvListPopularCubit bloc) => bloc.getPopularTvList(),
       expect: () => [TvListPopularLoading(), TvListPopularLoaded(datadum)],
     );
     blocTest(
@@ -121,7 +121,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Left(ConnectionFailure("fail")));
         return tvListPopularCubit;
       },
-      act: (bloc) => bloc.getPopularTvList(),
+      act: (TvListPopularCubit bloc) => bloc.getPopularTvList(),
       expect: () => [TvListPopularLoading(), TvListPopularError("fail")],
     );
     blocTest(
@@ -132,7 +132,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Left(ServerFailure("fail")));
         return tvListPopularCubit;
       },
-      act: (bloc) => bloc.getPopularTvList(),
+      act: (TvListPopularCubit bloc) => bloc.getPopularTvList(),
       expect: () => [TvListPopularLoading(), TvListPopularError("fail")],
     );
   });

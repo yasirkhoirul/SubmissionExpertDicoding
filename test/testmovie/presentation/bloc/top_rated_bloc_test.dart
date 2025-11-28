@@ -42,21 +42,21 @@ void main(){
       when(usecaseGetTopRated.execute()).thenAnswer((realInvocation) async => Right(tMovieList) ,);
       return cubit;
     },
-    act: (bloc) => bloc.getToprated(),
+    act: (TopRatedMovieCubit bloc) => bloc.getToprated(),
     expect: () => [TopRatedMovieLoading(),TopRatedMovieLoaded(tMovieList)],
     );
     blocTest("testing fail conec and return message", build: (){
       when(usecaseGetTopRated.execute()).thenAnswer((realInvocation) async => Left(ConnectionFailure("koneksi gagal")) ,);
       return cubit;
     },
-    act: (bloc) => bloc.getToprated(),
+    act: (TopRatedMovieCubit bloc) => bloc.getToprated(),
     expect: () => [TopRatedMovieLoading(),TopRatedMovieError("koneksi gagal")],
     );
     blocTest("testing fail server and return message", build: (){
       when(usecaseGetTopRated.execute()).thenAnswer((realInvocation) async => Left(ServerFailure("koneksi server gagal")) ,);
       return cubit;
     },
-    act: (bloc) => bloc.getToprated(),
+    act: (TopRatedMovieCubit bloc) => bloc.getToprated(),
     expect: () => [TopRatedMovieLoading(),TopRatedMovieError("koneksi server gagal")],
     );
   },);

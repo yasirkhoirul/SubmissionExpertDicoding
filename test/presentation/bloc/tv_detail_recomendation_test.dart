@@ -35,7 +35,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Right(datadum));
         return blocGetRecomendation;
       },
-      act: (bloc) => bloc.getRecomendation(1),
+      act: ( GetRecomedationDetailTvCubit bloc) => bloc.getRecomendation(1),
 
       expect: () => [
         GetRecomendationDetailTvLoading(),
@@ -50,7 +50,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Left(ConnectionFailure("Fail")));
         return blocGetRecomendation;
       },
-      act: (bloc) => bloc.getRecomendation(1),
+      act: (GetRecomedationDetailTvCubit bloc) => bloc.getRecomendation(1),
 
       expect: () => [
         GetRecomendationDetailTvLoading(),
@@ -65,7 +65,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Left(ServerFailure("Fail")));
         return blocGetRecomendation;
       },
-      act: (bloc) => bloc.getRecomendation(1),
+      act: (GetRecomedationDetailTvCubit bloc) => bloc.getRecomendation(1),
 
       expect: () => [
         GetRecomendationDetailTvLoading(),

@@ -50,7 +50,7 @@ void main() {
       ).thenAnswer((realInvocation) async => Right(datadummy));
       return getTVSeriesDetailBloc;
     },
-    act: (bloc) => bloc.add(OnDetailTvSeriesE(1)),
+    act: (GetDetailTvSeriesBloc bloc) => bloc.add(OnDetailTvSeriesE(1)),
 
     expect: () => [
       GetDetailTvSeriesState(
@@ -78,7 +78,7 @@ void main() {
       ).thenAnswer((realInvocation) async => Left(ConnectionFailure("")));
       return getTVSeriesDetailBloc;
     },
-    act: (bloc) => bloc.add(OnDetailTvSeriesE(1)),
+    act: (GetDetailTvSeriesBloc bloc) => bloc.add(OnDetailTvSeriesE(1)),
 
     expect: () => [
       GetDetailTvSeriesState(
@@ -106,7 +106,7 @@ void main() {
       ).thenAnswer((realInvocation) async => Left(ServerFailure("")));
       return getTVSeriesDetailBloc;
     },
-    act: (bloc) => bloc.add(OnDetailTvSeriesE(1)),
+    act: (GetDetailTvSeriesBloc bloc) => bloc.add(OnDetailTvSeriesE(1)),
 
     expect: () => [
       GetDetailTvSeriesState(
@@ -135,7 +135,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Right("berhasil disimpan"));
         return getTVSeriesDetailBloc;
       },
-      act: (bloc) => bloc.add(OnAddWatchListTv(datadummy)),
+      act: (GetDetailTvSeriesBloc bloc) => bloc.add(OnAddWatchListTv(datadummy)),
       expect: () => [
         GetDetailTvSeriesState(
           detailmessage: "",
@@ -161,7 +161,7 @@ void main() {
         ).thenAnswer((realInvocation) async => Left(DatabaseFailure("gagal")));
         return getTVSeriesDetailBloc;
       },
-      act: (bloc) => bloc.add(OnAddWatchListTv(datadummy)),
+      act: (GetDetailTvSeriesBloc bloc) => bloc.add(OnAddWatchListTv(datadummy)),
       expect: () => [
         GetDetailTvSeriesState(
           detailmessage: "",
@@ -178,14 +178,14 @@ void main() {
     when(mockusecasegetstatus.execute(1)).thenAnswer((realInvocation) async => true ,);
     return getTVSeriesDetailBloc;
   },
-  act: (bloc) => bloc.add(IsAddedOnWatchList(1)),
+  act: (GetDetailTvSeriesBloc bloc) => bloc.add(IsAddedOnWatchList(1)),
   expect: () => [GetDetailTvSeriesState(watchliststatus: true)],
   );
   blocTest("testing status and fail return false", build: () {
     when(mockusecasegetstatus.execute(1)).thenAnswer((realInvocation) async => false ,);
     return getTVSeriesDetailBloc;
   },
-  act: (bloc) => bloc.add(IsAddedOnWatchList(1)),
+  act: (GetDetailTvSeriesBloc bloc) => bloc.add(IsAddedOnWatchList(1)),
   expect: () => [GetDetailTvSeriesState(watchliststatus: false)],
   );
 
@@ -195,7 +195,7 @@ void main() {
       when(mockusecaseremovewatchlisttv.excute(datadummy)).thenAnswer((realInvocation) async=> Right("sukses menghapus") ,);
       return getTVSeriesDetailBloc;
     },
-    act: (bloc) => bloc.add(OnRemoveWatchListTv(datadummy)),
+    act: (GetDetailTvSeriesBloc bloc) => bloc.add(OnRemoveWatchListTv(datadummy)),
     expect: () => [
       GetDetailTvSeriesState(
           detailmessage: "",
@@ -211,7 +211,7 @@ void main() {
       when(mockusecaseremovewatchlisttv.excute(datadummy)).thenAnswer((realInvocation) async=> Left(DatabaseFailure("gagal menghapus")) ,);
       return getTVSeriesDetailBloc;
     },
-    act: (bloc) => bloc.add(OnRemoveWatchListTv(datadummy)),
+    act: (GetDetailTvSeriesBloc bloc) => bloc.add(OnRemoveWatchListTv(datadummy)),
     expect: () => [
       GetDetailTvSeriesState(
           detailmessage: "",

@@ -65,7 +65,7 @@ void main() {
         arrangeUsecase();
         return cubit;
       },
-      act: (bloc) => bloc.fetchMovieDetail(tId),
+      act: (MovieDetailCubit bloc) => bloc.fetchMovieDetail(tId),
       expect: () => [
         MovieDetailState(
           datalistrecomendation: [],
@@ -134,7 +134,7 @@ void main() {
         ).thenAnswer((_) async => Right([tMovie]));
         return cubit;
       },
-      act: (bloc) => bloc.fetchMovieDetail(tId),
+      act: (MovieDetailCubit bloc) => bloc.fetchMovieDetail(tId),
       expect: () => [
         MovieDetailState(
           datalistrecomendation: [],
@@ -176,7 +176,7 @@ void main() {
         ).thenAnswer((_) async => true);
         return cubit;
       },
-      act: (bloc) => bloc.addWatchlist(testMovieDetail),
+      act: (MovieDetailCubit bloc) => bloc.addWatchlist(testMovieDetail),
       expect: () => [
         MovieDetailState(
           datalistrecomendation: [],
@@ -209,7 +209,7 @@ void main() {
         ).thenAnswer((_) async => false);
         return cubit;
       },
-      act: (bloc) => bloc.addWatchlist(testMovieDetail),
+      act: (MovieDetailCubit bloc) => bloc.addWatchlist(testMovieDetail),
       expect: () => [
         MovieDetailState(
           datalistrecomendation: [],
@@ -231,7 +231,7 @@ void main() {
           .thenAnswer((_) async => false);
         return cubit;
       },
-      act: (bloc) => bloc.removeFromWatchlist(testMovieDetail),
+      act: (MovieDetailCubit bloc) => bloc.removeFromWatchlist(testMovieDetail),
       expect: () => [
         MovieDetailState(
           datalistrecomendation: [],
@@ -255,7 +255,7 @@ void main() {
         ).thenAnswer((_) async => false);
         return cubit;
       },
-      act: (bloc) => bloc.removeFromWatchlist(testMovieDetail),
+      act: (MovieDetailCubit bloc) => bloc.removeFromWatchlist(testMovieDetail),
       expect: () => [
         MovieDetailState(
           datalistrecomendation: [],
@@ -273,7 +273,7 @@ void main() {
       when(mockGetWatchlistStatus.execute(1)).thenAnswer((_) async => true);
       return cubit;
     },
-    act: (bloc) => bloc.loadWatchlistStatus(1),
+    act: (MovieDetailCubit bloc) => bloc.loadWatchlistStatus(1),
     expect: () =>  [MovieDetailState(
           datalistrecomendation: [],
           message: '',

@@ -45,21 +45,21 @@ void main(){
       when(usecaseWatchlist.execute()).thenAnswer((realInvocation) async => Right(tMovieList) ,);
       return cubit;
     },
-    act: (bloc) => bloc.getwatchlistMovie(),
+    act: (WatchlistMovieCubit bloc) => bloc.getwatchlistMovie(),
     expect: () => [WatchlistMovieLoading(),WatchlistMovieLoaded(tMovieList)],
     );
     blocTest("testing fail conec and return message", build: (){
       when(usecaseWatchlist.execute()).thenAnswer((realInvocation) async => Left(ConnectionFailure("koneksi gagal")) ,);
       return cubit;
     },
-    act: (bloc) => bloc.getwatchlistMovie(),
+    act: (WatchlistMovieCubit bloc) => bloc.getwatchlistMovie(),
     expect: () => [WatchlistMovieLoading(),WatchlistMovieError("koneksi gagal")],
     );
     blocTest("testing fail server and return message", build: (){
       when(usecaseWatchlist.execute()).thenAnswer((realInvocation) async => Left(ServerFailure("koneksi server gagal")) ,);
       return cubit;
     },
-    act: (bloc) => bloc.getwatchlistMovie(),
+    act: (WatchlistMovieCubit bloc) => bloc.getwatchlistMovie(),
     expect: () => [WatchlistMovieLoading(),WatchlistMovieError("koneksi server gagal")],
     );
   },);

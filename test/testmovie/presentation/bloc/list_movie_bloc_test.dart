@@ -42,21 +42,21 @@ void main(){
       when(usecaseGetNowPlaying.execute()).thenAnswer((realInvocation) async => Right(tMovieList) ,);
       return cubit;
     },
-    act: (bloc) => bloc.getListMovie(),
+    act: (ListMovieCubit bloc) => bloc.getListMovie(),
     expect: () => [ListMovieLoading(),ListMovieLoaded(tMovieList)],
     );
     blocTest("testing fail conec and return message", build: (){
       when(usecaseGetNowPlaying.execute()).thenAnswer((realInvocation) async => Left(ConnectionFailure("koneksi gagal")) ,);
       return cubit;
     },
-    act: (bloc) => bloc.getListMovie(),
+    act: (ListMovieCubit bloc) => bloc.getListMovie(),
     expect: () => [ListMovieLoading(),ListMovieError("koneksi gagal")],
     );
     blocTest("testing fail server and return message", build: (){
       when(usecaseGetNowPlaying.execute()).thenAnswer((realInvocation) async => Left(ServerFailure("koneksi server gagal")) ,);
       return cubit;
     },
-    act: (bloc) => bloc.getListMovie(),
+    act: (ListMovieCubit bloc) => bloc.getListMovie(),
     expect: () => [ListMovieLoading(),ListMovieError("koneksi server gagal")],
     );
   },);

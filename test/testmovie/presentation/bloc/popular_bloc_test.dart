@@ -42,21 +42,21 @@ void main(){
       when(usecaseGetPopular.execute()).thenAnswer((realInvocation) async => Right(tMovieList) ,);
       return cubit;
     },
-    act: (bloc) => bloc.getPopularMovie(),
+    act: (PopularMovieCubit bloc) => bloc.getPopularMovie(),
     expect: () => [PopularMovieLoading(),PopularMovieLoaded(tMovieList)],
     );
     blocTest("testing fail conec and return message", build: (){
       when(usecaseGetPopular.execute()).thenAnswer((realInvocation) async => Left(ConnectionFailure("koneksi gagal")) ,);
       return cubit;
     },
-    act: (bloc) => bloc.getPopularMovie(),
+    act: (PopularMovieCubit bloc) => bloc.getPopularMovie(),
     expect: () => [PopularMovieLoading(),PopularMovieError("koneksi gagal")],
     );
     blocTest("testing fail server and return message", build: (){
       when(usecaseGetPopular.execute()).thenAnswer((realInvocation) async => Left(ServerFailure("koneksi server gagal")) ,);
       return cubit;
     },
-    act: (bloc) => bloc.getPopularMovie(),
+    act: (PopularMovieCubit bloc) => bloc.getPopularMovie(),
     expect: () => [PopularMovieLoading(),PopularMovieError("koneksi server gagal")],
     );
   },);
