@@ -22,55 +22,57 @@ class TvModel extends Equatable {
   final int? vote_count;
 
   TvModel(
-      this.adult,
-      this.backdrop_path,
-      this.genre_ids,
-      this.id,
-      this.origin_country,
-      this.original_language,
-      this.original_name,
-      this.overview,
-      this.popularity,
-      this.poster_path,
-      this.first_air_date,
-      this.name,
-      this.vote_average,
-      this.vote_count);
+    this.adult,
+    this.backdrop_path,
+    this.genre_ids,
+    this.id,
+    this.origin_country,
+    this.original_language,
+    this.original_name,
+    this.overview,
+    this.popularity,
+    this.poster_path,
+    this.first_air_date,
+    this.name,
+    this.vote_average,
+    this.vote_count,
+  );
 
   factory TvModel.fromJson(Map<String, dynamic> json) =>
       _$TvModelFromJson(json);
 
   TvseriesEntity toEntity() => TvseriesEntity(
-      adult,
-      backdrop_path,
-      genre_ids,
-      id,
-      origin_country,
-      original_language,
-      original_name,
-      overview,
-      popularity,
-      poster_path,
-      first_air_date,
-      name,
-      vote_average,
-      vote_count);
+    adult,
+    backdrop_path,
+    genre_ids,
+    id,
+    origin_country,
+    original_language,
+    original_name,
+    overview,
+    popularity,
+    poster_path,
+    first_air_date,
+    name,
+    vote_average,
+    vote_count,
+  );
 
   @override
   List<Object?> get props => [
-        adult,
-        backdrop_path,
-        genre_ids,
-        id,
-        origin_country,
-        original_language,
-        original_name,
-        overview,
-        popularity,
-        poster_path,
-        first_air_date,
-        name,
-        vote_average,
-        vote_count
-      ];
+    adult,
+    backdrop_path,
+    genre_ids,
+    id,
+    origin_country,
+    original_language,
+    original_name,
+    overview,
+    popularity,
+    poster_path,
+    first_air_date,
+    name,
+    vote_average,
+    vote_count,
+  ];
 }

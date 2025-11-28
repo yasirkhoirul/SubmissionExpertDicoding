@@ -8,7 +8,9 @@ sealed class PopularMovieState extends Equatable {
 }
 
 final class PopularMovieInitial extends PopularMovieState {}
+
 final class PopularMovieLoading extends PopularMovieState {}
+
 final class PopularMovieError extends PopularMovieState {
   final String message;
   const PopularMovieError(this.message);
@@ -16,6 +18,7 @@ final class PopularMovieError extends PopularMovieState {
   @override
   List<Object> get props => [message];
 }
+
 final class PopularMovieLoaded extends PopularMovieState {
   final List<Movie> data;
   const PopularMovieLoaded(this.data);

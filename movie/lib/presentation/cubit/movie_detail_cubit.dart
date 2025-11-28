@@ -30,7 +30,7 @@ class MovieDetailCubit extends Cubit<MovieDetailState> {
           isAddedWatchList: false,
           movieDetail: null,
           statusDetail: RequestState.Empty,
-          statusRecomendation: RequestState.Empty, 
+          statusRecomendation: RequestState.Empty,
           watchlismessage: '',
         ),
       );
@@ -55,7 +55,7 @@ class MovieDetailCubit extends Cubit<MovieDetailState> {
           },
           (movies) {
             emit(state.copyWith(statusRecomendation: RequestState.Loaded));
-           emit(state.copyWith(datalistrecomendation: movies));
+            emit(state.copyWith(datalistrecomendation: movies));
           },
         );
       },
@@ -84,7 +84,7 @@ class MovieDetailCubit extends Cubit<MovieDetailState> {
         emit(state.copyWith(watchlismessage: failure.message));
       },
       (successMessage) async {
-       emit(state.copyWith(watchlismessage: successMessage));
+        emit(state.copyWith(watchlismessage: successMessage));
       },
     );
 

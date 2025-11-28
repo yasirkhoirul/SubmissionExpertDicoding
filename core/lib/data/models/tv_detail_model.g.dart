@@ -61,8 +61,6 @@ TvDetailModel _$TvDetailModelFromJson(
   (json['vote_count'] as num).toInt(),
 );
 
-
-
 CreatedBy _$CreatedByFromJson(Map<String, dynamic> json) => CreatedBy(
   (json['id'] as num).toInt(),
   json['credit_id'] as String,
@@ -71,7 +69,6 @@ CreatedBy _$CreatedByFromJson(Map<String, dynamic> json) => CreatedBy(
   (json['gender'] as num).toInt(),
   json['profile_path'] as String?,
 );
-
 
 Episode _$EpisodeFromJson(Map<String, dynamic> json) => Episode(
   (json['id'] as num).toInt(),
@@ -89,15 +86,12 @@ Episode _$EpisodeFromJson(Map<String, dynamic> json) => Episode(
   json['still_path'] as String?,
 );
 
-
-
 Network _$NetworkFromJson(Map<String, dynamic> json) => Network(
   (json['id'] as num).toInt(),
   json['logo_path'] as String?,
   json['name'] as String,
   json['origin_country'] as String,
 );
-
 
 Production_companies _$Production_companiesFromJson(
   Map<String, dynamic> json,
@@ -108,13 +102,9 @@ Production_companies _$Production_companiesFromJson(
   json['origin_country'] as String,
 );
 
-
-
 Production_countries _$Production_countriesFromJson(
   Map<String, dynamic> json,
 ) => Production_countries(json['iso_3166_1'] as String, json['name'] as String);
-
-
 
 Season _$SeasonFromJson(Map<String, dynamic> json) => Season(
   json['air_date'] as String?,
@@ -127,13 +117,9 @@ Season _$SeasonFromJson(Map<String, dynamic> json) => Season(
   (json['vote_average'] as num).toDouble(),
 );
 
-
-
 Spoken_languages _$Spoken_languagesFromJson(Map<String, dynamic> json) =>
     Spoken_languages(
       json['english_name'] as String,
       json['iso_639_1'] as String,
       json['name'] as String,
     );
-
-

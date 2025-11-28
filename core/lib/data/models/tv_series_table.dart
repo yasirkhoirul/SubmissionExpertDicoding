@@ -14,18 +14,24 @@ class TvSeriesTable extends Equatable {
 
   factory TvSeriesTable.fromMap(Map<String, dynamic> map) {
     return TvSeriesTable(
-        map['id'],
-        map['title'],
-        map['posterPath'],
-        map['overview'],
-        map['type'] == TypeMovie.Movie.toString()
-            ? TypeMovie.Movie
-            : TypeMovie.TvSeries);
+      map['id'],
+      map['title'],
+      map['posterPath'],
+      map['overview'],
+      map['type'] == TypeMovie.Movie.toString()
+          ? TypeMovie.Movie
+          : TypeMovie.TvSeries,
+    );
   }
 
   factory TvSeriesTable.fromEntity(TvSeriesDetail tv) {
     return TvSeriesTable(
-        tv.id, tv.name, tv.poster_path, tv.overview, TypeMovie.TvSeries);
+      tv.id,
+      tv.name,
+      tv.poster_path,
+      tv.overview,
+      TypeMovie.TvSeries,
+    );
   }
   Map<String, dynamic> toJson() {
     return {
@@ -33,17 +39,18 @@ class TvSeriesTable extends Equatable {
       "title": title,
       "posterPath": posterPath,
       "overview": overview,
-      "type": TypeMovie.TvSeries.toString()
+      "type": TypeMovie.TvSeries.toString(),
     };
   }
 
   TvseriesEntity toEntity() {
     return TvseriesEntity.watchlist(
-        id: id.toDouble(),
-        overview: overview,
-        poster_path: posterPath,
-        name: title,
-        type: TypeMovie.TvSeries.toString());
+      id: id.toDouble(),
+      overview: overview,
+      poster_path: posterPath,
+      name: title,
+      type: TypeMovie.TvSeries.toString(),
+    );
   }
 
   @override

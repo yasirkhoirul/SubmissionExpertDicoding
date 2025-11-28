@@ -7,17 +7,22 @@ sealed class GetRecomedationDetailTvState extends Equatable {
   List<Object> get props => [];
 }
 
-final class GetRecomedationDetailTvInitial extends GetRecomedationDetailTvState {}
+final class GetRecomedationDetailTvInitial
+    extends GetRecomedationDetailTvState {}
 
-final class GetRecomendationDetailTvLoading extends GetRecomedationDetailTvState{}
-final class GetRecomendationDetailTvError extends GetRecomedationDetailTvState{
+final class GetRecomendationDetailTvLoading
+    extends GetRecomedationDetailTvState {}
+
+final class GetRecomendationDetailTvError extends GetRecomedationDetailTvState {
   final String message;
   const GetRecomendationDetailTvError(this.message);
 
   @override
   List<Object> get props => [message];
 }
-final class GetRecomendationDetailTvLoaded extends GetRecomedationDetailTvState{
+
+final class GetRecomendationDetailTvLoaded
+    extends GetRecomedationDetailTvState {
   final List<TvSeriesRecomendationitem> data;
   const GetRecomendationDetailTvLoaded(this.data);
 

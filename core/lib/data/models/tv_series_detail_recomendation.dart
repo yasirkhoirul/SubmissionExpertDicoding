@@ -35,21 +35,22 @@ class TvSeriesDetailRecomendationItem extends Equatable {
   final int vote_count;
   final List<String> origin_country;
   TvSeriesDetailRecomendationItem(
-      this.adult,
-      this.backdrop_path,
-      this.id,
-      this.name,
-      this.original_language,
-      this.original_name,
-      this.overview,
-      this.poster_path,
-      this.media_type,
-      this.genre_ids,
-      this.popularity,
-      this.first_air_date,
-      this.vote_average,
-      this.vote_count,
-      this.origin_country);
+    this.adult,
+    this.backdrop_path,
+    this.id,
+    this.name,
+    this.original_language,
+    this.original_name,
+    this.overview,
+    this.poster_path,
+    this.media_type,
+    this.genre_ids,
+    this.popularity,
+    this.first_air_date,
+    this.vote_average,
+    this.vote_count,
+    this.origin_country,
+  );
 
   factory TvSeriesDetailRecomendationItem.fromJson(Map<String, dynamic> json) =>
       _$TvSeriesDetailRecomendationItemFromJson(json);
@@ -60,20 +61,20 @@ class TvSeriesDetailRecomendationItem extends Equatable {
 
   @override
   List<Object?> get props => [
-        adult,
-        backdrop_path,
-        id,
-        name,
-        original_language,
-        original_name,
-        overview,
-        poster_path,
-        media_type,
-        genre_ids,
-        popularity,
-        first_air_date,
-        vote_average,
-        vote_count,
-        origin_country
-      ];
+    adult,
+    backdrop_path,
+    id,
+    name,
+    original_language,
+    original_name,
+    overview,
+    poster_path,
+    media_type,
+    genre_ids,
+    popularity,
+    first_air_date,
+    vote_average,
+    vote_count,
+    origin_country,
+  ];
 }

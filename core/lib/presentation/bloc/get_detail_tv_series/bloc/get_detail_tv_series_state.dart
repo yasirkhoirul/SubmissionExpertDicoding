@@ -25,7 +25,7 @@ class GetDetailTvSeriesState extends Equatable {
   }) {
     return GetDetailTvSeriesState(
       tvSeriesDetail: tvSeriesDetail ?? this.tvSeriesDetail,
-      tvseriesstatus: requestState?? tvseriesstatus,
+      tvseriesstatus: requestState ?? tvseriesstatus,
       detailmessage: detailmessage ?? this.detailmessage,
       watchliststatus: watchlisstatuss ?? watchliststatus,
       watchlistmessage: watchlistmessage ?? this.watchlistmessage,

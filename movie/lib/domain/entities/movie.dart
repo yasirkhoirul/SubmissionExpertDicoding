@@ -18,12 +18,13 @@ class Movie extends Equatable {
     required this.voteCount,
   }) : type = TypeMovie.Movie.toString();
 
-  Movie.watchlist(
-      {required this.id,
-      required this.overview,
-      required this.posterPath,
-      required this.title,
-      required this.type});
+  Movie.watchlist({
+    required this.id,
+    required this.overview,
+    required this.posterPath,
+    required this.title,
+    required this.type,
+  });
 
   String type;
   bool? adult;
@@ -42,19 +43,19 @@ class Movie extends Equatable {
 
   @override
   List<Object?> get props => [
-        adult,
-        backdropPath,
-        genreIds,
-        id,
-        originalTitle,
-        overview,
-        popularity,
-        posterPath,
-        releaseDate,
-        title,
-        video,
-        voteAverage,
-        voteCount,
-        type
-      ];
+    adult,
+    backdropPath,
+    genreIds,
+    id,
+    originalTitle,
+    overview,
+    popularity,
+    posterPath,
+    releaseDate,
+    title,
+    video,
+    voteAverage,
+    voteCount,
+    type,
+  ];
 }

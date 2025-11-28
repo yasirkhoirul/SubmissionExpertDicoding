@@ -1,4 +1,3 @@
-
 import 'package:core/presentation/bloc/search_bloc/search_bloc.dart';
 import 'package:core/presentation/bloc/search_tv_bloc/bloc/search_tv_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SearchPage extends StatefulWidget {
-  
   const SearchPage({super.key});
   @override
   State<SearchPage> createState() => _SearchPageState();
@@ -34,9 +32,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Search'),
-      ),
+      appBar: AppBar(title: Text('Search')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -55,38 +51,31 @@ class _SearchPageState extends State<SearchPage> {
               textInputAction: TextInputAction.search,
             ),
             SizedBox(height: 16),
-            Text(
-              'Search Result',
-              style: kHeading6,
-            ),
+            Text('Search Result', style: kHeading6),
             SizedBox(
               child: Column(
                 children: [
                   Row(
                     children: [
                       Expanded(
-                          child: TextButton(
-                        child: Text("Movie", textAlign: TextAlign.center),
-                        onPressed: () {
-                          pageController.jumpToPage(
-                            0,
-                          );
-                        },
-                      )),
+                        child: TextButton(
+                          child: Text("Movie", textAlign: TextAlign.center),
+                          onPressed: () {
+                            pageController.jumpToPage(0);
+                          },
+                        ),
+                      ),
                       Expanded(
-                          child: TextButton(
-                        child: Text("Tv Series", textAlign: TextAlign.center),
-                        onPressed: () {
-                          pageController.jumpToPage(
-                            1,
-                          );
-                        },
-                      )),
+                        child: TextButton(
+                          child: Text("Tv Series", textAlign: TextAlign.center),
+                          onPressed: () {
+                            pageController.jumpToPage(1);
+                          },
+                        ),
+                      ),
                     ],
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -97,12 +86,13 @@ class _SearchPageState extends State<SearchPage> {
                             controller: pageController,
                             count: 2,
                             effect: WormEffect(
-                                dotWidth:
-                                    MediaQuery.of(context).size.width * 0.45,
-                                dotHeight: 4),
+                              dotWidth:
+                                  MediaQuery.of(context).size.width * 0.45,
+                              dotHeight: 4,
+                            ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ],
@@ -113,12 +103,10 @@ class _SearchPageState extends State<SearchPage> {
                 child: PageView(
                   controller: pageController,
                   children: [
-                    BlocBuilder<SearchBloc,SearchState>(
+                    BlocBuilder<SearchBloc, SearchState>(
                       builder: (context, state) {
                         if (state is SearchLoading) {
-                          return Center(
-                            child: CircularProgressIndicator(),
-                          );
+                          return Center(child: CircularProgressIndicator());
                         } else if (state is SearchHasData) {
                           final result = state.data;
                           return ListView.builder(
@@ -135,40 +123,33 @@ class _SearchPageState extends State<SearchPage> {
                             },
                             itemCount: result.length,
                           );
-                        }else if(state is SearchError){
+                        } else if (state is SearchError) {
                           return SizedBox(
-                            child: Center(
-                              child: Text(state.message),
-                            ),
+                            child: Center(child: Text(state.message)),
                           );
-                        }
-                        
-                         else {
+                        } else {
                           return Container();
                         }
                       },
                     ),
-                    BlocBuilder<SearchTvBloc,SearchTvState>(
-                        builder: (context, state) {
-                      if (state is SearchTvLoading) {
-                        return Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      } else if (state is SearchTvLoaded) {
-                        final dataTv = state.data;
-                        return ListView.builder(
-                          itemCount: dataTv.length,
-                          itemBuilder: (context, index) =>
-                              TvCardList(dataTv[index]),
-                        );
-                      } else if (state is SearchTvError) {
-                        return Center(
-                          child: Text(state.message),
-                        );
-                      } else {
-                        return Container();
-                      }
-                    })
+                    BlocBuilder<SearchTvBloc, SearchTvState>(
+                      builder: (context, state) {
+                        if (state is SearchTvLoading) {
+                          return Center(child: CircularProgressIndicator());
+                        } else if (state is SearchTvLoaded) {
+                          final dataTv = state.data;
+                          return ListView.builder(
+                            itemCount: dataTv.length,
+                            itemBuilder: (context, index) =>
+                                TvCardList(dataTv[index]),
+                          );
+                        } else if (state is SearchTvError) {
+                          return Center(child: Text(state.message));
+                        } else {
+                          return Container();
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),

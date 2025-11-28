@@ -20,7 +20,7 @@ class GetDetailTvSeriesBloc
     this.getTvSeriesDetail,
     this.saveWatchlistTv, {
     required this.getWatchListStatus,
-    required this.removeWatchlistTv
+    required this.removeWatchlistTv,
   }) : super(GetDetailTvSeriesState()) {
     on<OnDetailTvSeriesE>((event, emit) async {
       final id = event.id;
@@ -73,11 +73,12 @@ class GetDetailTvSeriesBloc
       result.fold(
         (l) {
           emit(state.copyWith(watchlistmessage: l.message));
-        }
-        , (r) {
+        },
+        (r) {
           emit(state.copyWith(watchlistmessage: r));
           emit(state.copyWith(watchlisstatuss: false));
-        },);
+        },
+      );
     });
   }
 }

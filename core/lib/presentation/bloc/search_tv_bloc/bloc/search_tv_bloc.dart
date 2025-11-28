@@ -9,8 +9,7 @@ part 'search_tv_state.dart';
 class SearchTvBloc extends Bloc<SearchTvEvent, SearchTvState> {
   final SearchWatchlistTv searchWatchlistTv;
   SearchTvBloc(this.searchWatchlistTv) : super(SearchTvInitial()) {
-    on<OnSearchTvQuery>((event, emit) async{
-      
+    on<OnSearchTvQuery>((event, emit) async {
       final String query = event.query;
       emit(SearchTvLoading());
       final data = await searchWatchlistTv.excute(query);
@@ -18,9 +17,11 @@ class SearchTvBloc extends Bloc<SearchTvEvent, SearchTvState> {
       data.fold(
         (l) {
           emit(SearchTvError(l.message));
-        }, (r) {
+        },
+        (r) {
           emit(SearchTvLoaded(r));
-        },);
-    },);
+        },
+      );
+    });
   }
 }

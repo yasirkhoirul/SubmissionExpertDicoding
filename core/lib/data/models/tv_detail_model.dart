@@ -40,87 +40,89 @@ class TvDetailModel extends Equatable {
   final double vote_average;
   final int vote_count;
   TvDetailModel(
-      this.adult,
-      this.backdrop_path,
-      this.created_by,
-      this.episode_run_time,
-      this.first_air_date,
-      this.genres,
-      this.homepage,
-      this.id,
-      this.in_production,
-      this.languages,
-      this.last_air_date,
-      this.last_episode_to_air,
-      this.name,
-      this.next_episode_to_air,
-      this.networks,
-      this.number_of_episodes,
-      this.number_of_seasons,
-      this.origin_country,
-      this.original_language,
-      this.original_name,
-      this.overview,
-      this.popularity,
-      this.poster_path,
-      this.production_companies,
-      this.production_countries,
-      this.seasons,
-      this.spoken_languages,
-      this.status,
-      this.tagline,
-      this.type,
-      this.vote_average,
-      this.vote_count);
+    this.adult,
+    this.backdrop_path,
+    this.created_by,
+    this.episode_run_time,
+    this.first_air_date,
+    this.genres,
+    this.homepage,
+    this.id,
+    this.in_production,
+    this.languages,
+    this.last_air_date,
+    this.last_episode_to_air,
+    this.name,
+    this.next_episode_to_air,
+    this.networks,
+    this.number_of_episodes,
+    this.number_of_seasons,
+    this.origin_country,
+    this.original_language,
+    this.original_name,
+    this.overview,
+    this.popularity,
+    this.poster_path,
+    this.production_companies,
+    this.production_countries,
+    this.seasons,
+    this.spoken_languages,
+    this.status,
+    this.tagline,
+    this.type,
+    this.vote_average,
+    this.vote_count,
+  );
   factory TvDetailModel.fromJson(Map<String, dynamic> json) =>
       _$TvDetailModelFromJson(json);
 
   @override
   List<Object?> get props => [
-        adult,
-        backdrop_path,
-        created_by,
-        episode_run_time,
-        first_air_date,
-        genres,
-        homepage,
-        id,
-        in_production,
-        languages,
-        last_air_date,
-        last_episode_to_air,
-        name,
-        next_episode_to_air,
-        networks,
-        number_of_episodes,
-        number_of_seasons,
-        origin_country,
-        original_language,
-        original_name,
-        overview,
-        popularity,
-        poster_path,
-        production_companies,
-        production_countries,
-        seasons,
-        spoken_languages,
-        status,
-        tagline,
-        type,
-        vote_average,
-        vote_count,
-      ];
+    adult,
+    backdrop_path,
+    created_by,
+    episode_run_time,
+    first_air_date,
+    genres,
+    homepage,
+    id,
+    in_production,
+    languages,
+    last_air_date,
+    last_episode_to_air,
+    name,
+    next_episode_to_air,
+    networks,
+    number_of_episodes,
+    number_of_seasons,
+    origin_country,
+    original_language,
+    original_name,
+    overview,
+    popularity,
+    poster_path,
+    production_companies,
+    production_countries,
+    seasons,
+    spoken_languages,
+    status,
+    tagline,
+    type,
+    vote_average,
+    vote_count,
+  ];
 
   TvSeriesDetail toEntity() {
     return TvSeriesDetail(
-        id: id,
-        name: name,
-        poster_path: poster_path,
-        overview: overview,
-        rating: vote_average,
-        reviewer: vote_count,
-        episode: number_of_episodes,
-        season: number_of_seasons);
+      id: id,
+      name: name,
+      poster_path: poster_path,
+      overview: overview,
+      rating: vote_average,
+      reviewer: vote_count,
+      episode: number_of_episodes,
+      season: number_of_seasons,
+    );
   }
 }
 
@@ -132,15 +134,27 @@ class CreatedBy extends Equatable {
   final String original_name;
   final int gender;
   final String? profile_path;
-  CreatedBy(this.id, this.credit_id, this.name, this.original_name, this.gender,
-      this.profile_path);
+  CreatedBy(
+    this.id,
+    this.credit_id,
+    this.name,
+    this.original_name,
+    this.gender,
+    this.profile_path,
+  );
 
   factory CreatedBy.fromJson(Map<String, dynamic> json) =>
       _$CreatedByFromJson(json);
 
   @override
-  List<Object?> get props =>
-      [id, credit_id, name, original_name, gender, profile_path];
+  List<Object?> get props => [
+    id,
+    credit_id,
+    name,
+    original_name,
+    gender,
+    profile_path,
+  ];
 }
 
 @JsonSerializable()
@@ -159,37 +173,38 @@ class Episode extends Equatable {
   final int show_id;
   final String? still_path;
   Episode(
-      this.id,
-      this.name,
-      this.overview,
-      this.vote_average,
-      this.vote_count,
-      this.air_date,
-      this.episode_number,
-      this.episode_type,
-      this.production_code,
-      this.runtime,
-      this.season_number,
-      this.show_id,
-      this.still_path);
+    this.id,
+    this.name,
+    this.overview,
+    this.vote_average,
+    this.vote_count,
+    this.air_date,
+    this.episode_number,
+    this.episode_type,
+    this.production_code,
+    this.runtime,
+    this.season_number,
+    this.show_id,
+    this.still_path,
+  );
   factory Episode.fromJson(Map<String, dynamic> json) =>
       _$EpisodeFromJson(json);
   @override
   List<Object?> get props => [
-        id,
-        name,
-        overview,
-        vote_average,
-        vote_count,
-        air_date,
-        episode_number,
-        episode_type,
-        production_code,
-        runtime,
-        season_number,
-        show_id,
-        still_path
-      ];
+    id,
+    name,
+    overview,
+    vote_average,
+    vote_count,
+    air_date,
+    episode_number,
+    episode_type,
+    production_code,
+    runtime,
+    season_number,
+    show_id,
+    still_path,
+  ];
 }
 
 @JsonSerializable()
@@ -240,21 +255,29 @@ class Season extends Equatable {
   final String? poster_path;
   final int season_number;
   final double vote_average;
-  Season(this.air_date, this.episode_count, this.id, this.name, this.overview,
-      this.poster_path, this.season_number, this.vote_average);
+  Season(
+    this.air_date,
+    this.episode_count,
+    this.id,
+    this.name,
+    this.overview,
+    this.poster_path,
+    this.season_number,
+    this.vote_average,
+  );
   factory Season.fromJson(Map<String, dynamic> json) => _$SeasonFromJson(json);
 
   @override
   List<Object?> get props => [
-        air_date,
-        episode_count,
-        id,
-        name,
-        overview,
-        poster_path,
-        season_number,
-        vote_average
-      ];
+    air_date,
+    episode_count,
+    id,
+    name,
+    overview,
+    poster_path,
+    season_number,
+    vote_average,
+  ];
 }
 
 @JsonSerializable()

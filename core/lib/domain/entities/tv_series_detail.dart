@@ -10,17 +10,26 @@ class TvSeriesDetail extends Equatable {
   final int episode;
   final int season;
 
-  TvSeriesDetail(
-      {required this.name,
-      required this.poster_path,
-      required this.overview,
-      required this.rating,
-      required this.reviewer,
-      required this.episode,
-      required this.season,
-      required this.id});
+  TvSeriesDetail({
+    required this.name,
+    required this.poster_path,
+    required this.overview,
+    required this.rating,
+    required this.reviewer,
+    required this.episode,
+    required this.season,
+    required this.id,
+  });
 
   @override
-  List<Object?> get props =>
-      [name, poster_path, overview, rating, reviewer, episode, season, id];
+  List<Object?> get props => [
+    name,
+    poster_path,
+    overview,
+    rating,
+    reviewer,
+    episode,
+    season,
+    id,
+  ];
 }

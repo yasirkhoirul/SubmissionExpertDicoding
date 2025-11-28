@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class WatchlistMoviesPage extends StatefulWidget {
-  
-
   @override
   _WatchlistMoviesPageState createState() => _WatchlistMoviesPageState();
 }
@@ -17,8 +15,9 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-       context.read<WatchlistMovieCubit>().getwatchlistMovie());
+    Future.microtask(
+      () => context.read<WatchlistMovieCubit>().getwatchlistMovie(),
+    );
   }
 
   @override
@@ -34,17 +33,13 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Watchlist'),
-      ),
+      appBar: AppBar(title: Text('Watchlist')),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<WatchlistMovieCubit,WatchlistMovieState>(
-          builder: (context,state) {
+        child: BlocBuilder<WatchlistMovieCubit, WatchlistMovieState>(
+          builder: (context, state) {
             if (state is WatchlistMovieLoading) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
+              return Center(child: CircularProgressIndicator());
             } else if (state is WatchlistMovieLoaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
@@ -53,12 +48,12 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
                 },
                 itemCount: state.data.length,
               );
-            } else if(state is WatchlistMovieError){
+            } else if (state is WatchlistMovieError) {
               return Center(
                 key: Key('error_message'),
                 child: Text(state.message),
               );
-            }else{
+            } else {
               return Container();
             }
           },

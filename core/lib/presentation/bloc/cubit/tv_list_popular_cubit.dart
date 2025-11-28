@@ -7,16 +7,19 @@ part 'tv_list_popular_state.dart';
 
 class TvListPopularCubit extends Cubit<TvListPopularState> {
   final GetPopularTv getPopularTv;
-  TvListPopularCubit({required this.getPopularTv}) : super(TvListPopularInitial());
+  TvListPopularCubit({required this.getPopularTv})
+    : super(TvListPopularInitial());
 
-  void getPopularTvList()async{
+  void getPopularTvList() async {
     emit(TvListPopularLoading());
     final data = await getPopularTv.execute();
     data.fold(
       (l) {
         emit(TvListPopularError(l.message));
-      }, (r) {
+      },
+      (r) {
         emit(TvListPopularLoaded(r));
-      },);
+      },
+    );
   }
 }

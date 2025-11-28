@@ -14,19 +14,17 @@ import '../../domain/repositories/tv_repositories.dart';
 import 'package:logger/logger.dart';
 
 class TvRepositoriesImpl implements TvRepositories {
-  TvRepositoriesImpl(
-      {required this.tvdatasource, required this.tvLoaclDataSource});
+  TvRepositoriesImpl({
+    required this.tvdatasource,
+    required this.tvLoaclDataSource,
+  });
   final TvSeriesRemoteDataSource tvdatasource;
   final TvLoaclDataSource tvLoaclDataSource;
   @override
   Future<Either<Failure, List<TvseriesEntity>>> getListTVonAiring() async {
     try {
       final data = await tvdatasource.getTvSeriesOnAiring();
-      return Right(data.results!
-          .map(
-            (e) => e.toEntity(),
-          )
-          .toList());
+      return Right(data.results!.map((e) => e.toEntity()).toList());
     } on ServerException {
       return Left(ServerFailure(""));
     } on SocketException {
@@ -48,15 +46,12 @@ class TvRepositoriesImpl implements TvRepositories {
 
   @override
   Future<Either<Failure, List<TvSeriesRecomendationitem>>> getRecomendation(
-      int id) async {
+    int id,
+  ) async {
     try {
       final data = await tvdatasource.getRecomendation(id);
       Logger().d("data ini adalah $data");
-      return right(data.results
-          .map(
-            (e) => e.toentity(),
-          )
-          .toList());
+      return right(data.results.map((e) => e.toentity()).toList());
     } on ServerException {
       return Left(ServerFailure(''));
     } on SocketException {
@@ -85,8 +80,9 @@ class TvRepositoriesImpl implements TvRepositories {
   @override
   Future<Either<Failure, String>> removeWatchlist(TvSeriesDetail tv) async {
     try {
-      final result =
-          await tvLoaclDataSource.removeWatchlist(TvSeriesTable.fromEntity(tv));
+      final result = await tvLoaclDataSource.removeWatchlist(
+        TvSeriesTable.fromEntity(tv),
+      );
       return Right(result);
     } on DatabaseException catch (e) {
       return Left(DatabaseFailure(e.message));
@@ -96,8 +92,9 @@ class TvRepositoriesImpl implements TvRepositories {
   @override
   Future<Either<Failure, String>> saveWatchlist(TvSeriesDetail tv) async {
     try {
-      final result =
-          await tvLoaclDataSource.insertWatchlist(TvSeriesTable.fromEntity(tv));
+      final result = await tvLoaclDataSource.insertWatchlist(
+        TvSeriesTable.fromEntity(tv),
+      );
       return Right(result);
     } on DatabaseException catch (e) {
       return Left(DatabaseFailure(e.message));
@@ -110,11 +107,7 @@ class TvRepositoriesImpl implements TvRepositories {
   Future<Either<Failure, List<TvseriesEntity>>> getSearch(String data) async {
     try {
       final resulte = await tvdatasource.searchtv(data);
-      return Right(resulte.results!
-          .map(
-            (e) => e.toEntity(),
-          )
-          .toList());
+      return Right(resulte.results!.map((e) => e.toEntity()).toList());
     } on ServerException {
       return Left(ServerFailure(""));
     } on SocketException {
@@ -126,11 +119,7 @@ class TvRepositoriesImpl implements TvRepositories {
   Future<Either<Failure, List<TvseriesEntity>>> getPopularTv() async {
     try {
       final data = await tvdatasource.getPopular();
-      return Right(data.results!
-          .map(
-            (e) => e.toEntity(),
-          )
-          .toList());
+      return Right(data.results!.map((e) => e.toEntity()).toList());
     } on ServerException {
       return Left(ServerFailure(""));
     } on SocketException {
@@ -142,11 +131,7 @@ class TvRepositoriesImpl implements TvRepositories {
   Future<Either<Failure, List<TvseriesEntity>>> getTopratedTv() async {
     try {
       final data = await tvdatasource.getTopRated();
-      return Right(data.results!
-          .map(
-            (e) => e.toEntity(),
-          )
-          .toList());
+      return Right(data.results!.map((e) => e.toEntity()).toList());
     } on ServerException {
       return Left(ServerFailure(""));
     } on SocketException {

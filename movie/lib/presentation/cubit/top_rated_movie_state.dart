@@ -8,7 +8,9 @@ sealed class TopRatedMovieState extends Equatable {
 }
 
 final class TopRatedMovieInitial extends TopRatedMovieState {}
+
 final class TopRatedMovieLoading extends TopRatedMovieState {}
+
 final class TopRatedMovieError extends TopRatedMovieState {
   final String message;
   const TopRatedMovieError(this.message);
@@ -16,6 +18,7 @@ final class TopRatedMovieError extends TopRatedMovieState {
   @override
   List<Object> get props => [message];
 }
+
 final class TopRatedMovieLoaded extends TopRatedMovieState {
   final List<Movie> data;
   const TopRatedMovieLoaded(this.data);

@@ -9,7 +9,7 @@ import 'package:logger/web.dart';
 class MovieCard extends StatelessWidget {
   final Movie movie;
 
-  const MovieCard(this.movie,{super.key});
+  const MovieCard(this.movie, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +19,13 @@ class MovieCard extends StatelessWidget {
         onTap: () {
           Logger().d(movie.type);
           if (movie.type == TypeMovie.Movie.toString()) {
+            Navigator.pushNamed(context, routeDetail, arguments: movie.id);
+          } else {
             Navigator.pushNamed(
               context,
-              routeDetail,
-              arguments: movie.id,
+              routeTvDetail,
+              arguments: movie.id.toDouble(),
             );
-          } else {
-            Navigator.pushNamed(context, routeTvDetail,
-                arguments: movie.id.toDouble());
           }
         },
         child: Stack(
@@ -67,18 +66,14 @@ class MovieCard extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(
-                left: 16,
-                bottom: 16,
-              ),
+              margin: const EdgeInsets.only(left: 16, bottom: 16),
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(8)),
                 child: CachedNetworkImage(
                   imageUrl: '$BASE_IMAGE_URL${movie.posterPath}',
                   width: 80,
-                  placeholder: (context, url) => Center(
-                    child: CircularProgressIndicator(),
-                  ),
+                  placeholder: (context, url) =>
+                      Center(child: CircularProgressIndicator()),
                   errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
               ),

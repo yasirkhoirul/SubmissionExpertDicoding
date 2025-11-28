@@ -17,7 +17,6 @@ abstract class TvSeriesRemoteDataSource {
 }
 
 class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
-  
   final http.Client client;
   TvSeriesRemoteDataSourceImpl({required this.client});
   final apikey = "2174d146bb9c0eab47529b2e77d6b526";
@@ -47,8 +46,9 @@ class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
 
   @override
   Future<TvSeriesDetailRecomendation> getRecomendation(int id) async {
-    final uri = Uri.https(
-        baseurl, "$basepath/$id/recommendations", {"api_key": apikey});
+    final uri = Uri.https(baseurl, "$basepath/$id/recommendations", {
+      "api_key": apikey,
+    });
     final response = await client.get(uri);
     if (response.statusCode == 200) {
       return TvSeriesDetailRecomendation.fromJson(jsonDecode(response.body));
@@ -59,8 +59,10 @@ class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
 
   @override
   Future<TvResponse> searchtv(String datasearch) async {
-    final uri = Uri.https(
-        baseurl, "/3/search/tv", {"api_key": apikey, "query": datasearch});
+    final uri = Uri.https(baseurl, "/3/search/tv", {
+      "api_key": apikey,
+      "query": datasearch,
+    });
     final response = await client.get(uri);
     if (response.statusCode == 200) {
       return TvResponse.fromJson(jsonDecode(response.body));

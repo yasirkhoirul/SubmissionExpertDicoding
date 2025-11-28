@@ -10,6 +10,7 @@ sealed class TvListState extends Equatable {
 final class TvListInitial extends TvListState {}
 
 final class TvListLoading extends TvListState {}
+
 final class TvListEror extends TvListState {
   final String message;
   const TvListEror(this.message);
@@ -17,6 +18,7 @@ final class TvListEror extends TvListState {
   @override
   List<Object> get props => [message];
 }
+
 final class TvListLoaded extends TvListState {
   final List<TvseriesEntity> data;
   const TvListLoaded(this.data);

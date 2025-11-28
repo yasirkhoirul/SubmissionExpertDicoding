@@ -8,7 +8,9 @@ sealed class WatchlistMovieState extends Equatable {
 }
 
 final class WatchlistMovieInitial extends WatchlistMovieState {}
+
 final class WatchlistMovieLoading extends WatchlistMovieState {}
+
 final class WatchlistMovieError extends WatchlistMovieState {
   final String message;
   const WatchlistMovieError(this.message);
@@ -16,6 +18,7 @@ final class WatchlistMovieError extends WatchlistMovieState {
   @override
   List<Object> get props => [message];
 }
+
 final class WatchlistMovieLoaded extends WatchlistMovieState {
   final List<Movie> data;
   const WatchlistMovieLoaded(this.data);

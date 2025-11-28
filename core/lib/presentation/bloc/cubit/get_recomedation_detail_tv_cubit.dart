@@ -7,17 +7,20 @@ part 'get_recomedation_detail_tv_state.dart';
 
 class GetRecomedationDetailTvCubit extends Cubit<GetRecomedationDetailTvState> {
   final GetTvSeriesRecomendation getTvSeriesRecomendation;
-  GetRecomedationDetailTvCubit({required this.getTvSeriesRecomendation}) : super(GetRecomedationDetailTvInitial());
+  GetRecomedationDetailTvCubit({required this.getTvSeriesRecomendation})
+    : super(GetRecomedationDetailTvInitial());
 
-  void getRecomendation(int id)async{
+  void getRecomendation(int id) async {
     emit(GetRecomendationDetailTvLoading());
     final data = await getTvSeriesRecomendation.execute(id);
 
     data.fold(
       (l) {
         emit(GetRecomendationDetailTvError(l.message));
-      }, (r) {
+      },
+      (r) {
         emit(GetRecomendationDetailTvLoaded(r));
-      },);
+      },
+    );
   }
 }

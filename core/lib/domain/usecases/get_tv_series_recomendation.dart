@@ -8,7 +8,8 @@ class GetTvSeriesRecomendation {
   GetTvSeriesRecomendation(this.repo);
 
   Future<Either<Failure, List<TvSeriesRecomendationitem>>> execute(
-      int id) async {
+    int id,
+  ) async {
     return repo.getRecomendation(id);
   }
 }

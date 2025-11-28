@@ -15,8 +15,10 @@ class TopRatedMovieCubit extends Cubit<TopRatedMovieState> {
     response.fold(
       (l) {
         emit(TopRatedMovieError(l.message));
-      }, (r) {
+      },
+      (r) {
         emit(TopRatedMovieLoaded(r));
-      },);
+      },
+    );
   }
 }

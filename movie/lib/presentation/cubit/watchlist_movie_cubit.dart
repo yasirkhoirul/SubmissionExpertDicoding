@@ -14,8 +14,10 @@ class WatchlistMovieCubit extends Cubit<WatchlistMovieState> {
     response.fold(
       (l) {
         emit(WatchlistMovieError(l.message));
-      }, (r) {
+      },
+      (r) {
         emit(WatchlistMovieLoaded(r));
-      },);
+      },
+    );
   }
 }

@@ -16,6 +16,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie/presentation/cubit/list_movie_cubit.dart';
 import 'package:movie/presentation/cubit/movie_detail_cubit.dart';
 import 'package:movie/presentation/cubit/popular_movie_cubit.dart';
 import 'package:movie/presentation/cubit/top_rated_movie_cubit.dart';
@@ -29,18 +30,6 @@ import 'package:core/presentation/pages/tv_popular.dart';
 import 'package:core/presentation/pages/tv_series_detail_page.dart';
 import 'package:core/presentation/pages/tv_top_rated.dart';
 import 'package:movie/presentation/pages/watchlist_movies_page.dart';
-import 'package:movie/presentation/provider/movie_detail_notifier.dart';
-import 'package:movie/presentation/provider/movie_list_notifier.dart';
-import 'package:core/presentation/provider/movie_search_notifier.dart';
-import 'package:movie/presentation/provider/popular_movies_notifier.dart';
-import 'package:movie/presentation/provider/top_rated_movies_notifier.dart';
-import 'package:core/presentation/provider/tv_list_notifier.dart';
-import 'package:core/presentation/provider/tv_popular_notifier.dart';
-import 'package:core/presentation/provider/tv_search_notifier.dart';
-import 'package:core/presentation/provider/tv_series_detail_notifier.dart';
-import 'package:core/presentation/provider/tv_top_rated_notifier.dart';
-import 'package:movie/presentation/provider/watchlist_movie_notifier.dart';
-import 'package:core/presentation/provider/watchlist_tv_notifier.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -65,42 +54,42 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieListNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieDetailNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieSearchNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TopRatedMoviesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<PopularMoviesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<WatchlistMovieNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<TvListNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<TvSeriesDetailNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<WatchlistTvNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<TvSearchNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<TvTopRatedNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<TvPopularNotifier>(),
-        ),
+        // ChangeNotifierProvider(
+        //   create: (_) => di.locator<MovieListNotifier>(),
+        // ),
+        // ChangeNotifierProvider(
+        //   create: (_) => di.locator<MovieDetailNotifier>(),
+        // ),
+        // ChangeNotifierProvider(
+        //   create: (_) => di.locator<MovieSearchNotifier>(),
+        // ),
+        // ChangeNotifierProvider(
+        //   create: (_) => di.locator<TopRatedMoviesNotifier>(),
+        // ),
+        // ChangeNotifierProvider(
+        //   create: (_) => di.locator<PopularMoviesNotifier>(),
+        // ),
+        // ChangeNotifierProvider(
+        //   create: (_) => di.locator<WatchlistMovieNotifier>(),
+        // ),
+        // ChangeNotifierProvider(
+        //   create: (context) => di.locator<TvListNotifier>(),
+        // ),
+        // ChangeNotifierProvider(
+        //   create: (context) => di.locator<TvSeriesDetailNotifier>(),
+        // ),
+        // ChangeNotifierProvider(
+        //   create: (context) => di.locator<WatchlistTvNotifier>(),
+        // ),
+        // ChangeNotifierProvider(
+        //   create: (context) => di.locator<TvSearchNotifier>(),
+        // ),
+        // ChangeNotifierProvider(
+        //   create: (context) => di.locator<TvTopRatedNotifier>(),
+        // ),
+        // ChangeNotifierProvider(
+        //   create: (context) => di.locator<TvPopularNotifier>(),
+        // ),
         BlocProvider(
           create: (context) => di.locator<SearchBloc>(),
         ),
@@ -113,7 +102,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => di.locator<MovieDetailCubit>(),),
         BlocProvider(create: (context) => di.locator<PopularMovieCubit>(),),
         BlocProvider(create: (context) => di.locator<TopRatedMovieCubit>(),),
-        BlocProvider(create: (context) => di.locator<WatchlistMovieCubit>(),)
+        BlocProvider(create: (context) => di.locator<WatchlistMovieCubit>(),),
+        BlocProvider(create: (context) => di.locator<ListMovieCubit>(),)
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

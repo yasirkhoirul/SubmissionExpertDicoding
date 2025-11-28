@@ -7,20 +7,20 @@ part 'tv_list_top_rated_state.dart';
 
 class TvListTopRatedCubit extends Cubit<TvListTopRatedState> {
   final GetTopRatedTv getTopRatedTv;
-  TvListTopRatedCubit({required this.getTopRatedTv}) : super(TvListTopRatedInitial());
+  TvListTopRatedCubit({required this.getTopRatedTv})
+    : super(TvListTopRatedInitial());
 
-  void getToprated() async{
+  void getToprated() async {
     emit(TvListTopRatedLoading());
     final data = await getTopRatedTv.execute();
 
     data.fold(
       (l) {
         emit(TvListTopRatedError(l.message));
-      }
-      ,
+      },
       (r) {
         emit(TvListTopRatedLoaded(r));
       },
-      );
+    );
   }
 }

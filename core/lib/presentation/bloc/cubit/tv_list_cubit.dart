@@ -7,19 +7,18 @@ part 'tv_list_state.dart';
 
 class TvListCubit extends Cubit<TvListState> {
   final GetTvOnAiring getWatchlistTv;
-  TvListCubit(
-    {required this.getWatchlistTv}
-  ) : super(TvListInitial());
+  TvListCubit({required this.getWatchlistTv}) : super(TvListInitial());
 
-  void getListTv()async{
+  void getListTv() async {
     emit(TvListLoading());
     final data = await getWatchlistTv.execute();
     data.fold(
       (l) {
         emit(TvListEror(l.message));
-      }
-      , (r) {
+      },
+      (r) {
         emit(TvListLoaded(r));
-      },);
+      },
+    );
   }
 }

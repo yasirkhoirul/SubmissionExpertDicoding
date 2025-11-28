@@ -35,22 +35,11 @@ import 'package:core/domain/usecases/watchlisttvseries/get_watchlist_tv.dart';
 import 'package:core/domain/usecases/watchlisttvseries/remove_watchlist_tv.dart';
 import 'package:core/domain/usecases/watchlisttvseries/save_watchlist_tv.dart';
 import 'package:core/domain/usecases/watchlisttvseries/search_watchlistv.dart';
+import 'package:movie/presentation/cubit/list_movie_cubit.dart';
 import 'package:movie/presentation/cubit/movie_detail_cubit.dart';
 import 'package:movie/presentation/cubit/popular_movie_cubit.dart';
 import 'package:movie/presentation/cubit/top_rated_movie_cubit.dart';
 import 'package:movie/presentation/cubit/watchlist_movie_cubit.dart';
-import 'package:movie/presentation/provider/movie_detail_notifier.dart';
-import 'package:movie/presentation/provider/movie_list_notifier.dart';
-import 'package:core/presentation/provider/movie_search_notifier.dart';
-import 'package:movie/presentation/provider/popular_movies_notifier.dart';
-import 'package:movie/presentation/provider/top_rated_movies_notifier.dart';
-import 'package:core/presentation/provider/tv_list_notifier.dart';
-import 'package:core/presentation/provider/tv_popular_notifier.dart';
-import 'package:core/presentation/provider/tv_search_notifier.dart';
-import 'package:core/presentation/provider/tv_series_detail_notifier.dart';
-import 'package:core/presentation/provider/tv_top_rated_notifier.dart';
-import 'package:movie/presentation/provider/watchlist_movie_notifier.dart';
-import 'package:core/presentation/provider/watchlist_tv_notifier.dart';
 import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 
@@ -58,53 +47,8 @@ import 'package:get_it/get_it.dart';
 final locator = GetIt.instance;
 
 Future<void> init() async{
-  // provider
-  locator.registerFactory(
-    () => TvListNotifier(getTvOnAiring: locator()),
-  );
-  locator.registerFactory(
-    () => MovieListNotifier(
-      getNowPlayingMovies: locator(),
-      getPopularMovies: locator(),
-      getTopRatedMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => MovieDetailNotifier(
-      getMovieDetail: locator(),
-      getMovieRecommendations: locator(),
-      getWatchListStatus: locator(),
-      saveWatchlist: locator(),
-      removeWatchlist: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => MovieSearchNotifier(
-      searchMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => PopularMoviesNotifier(
-      locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => TopRatedMoviesNotifier(
-      getTopRatedMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => WatchlistMovieNotifier(
-      getWatchlistMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => TvPopularNotifier(getPopularTv: locator()),
-  );
-  locator.registerFactory(
-    () => TvTopRatedNotifier(getTopRatedTv: locator<GetTopRatedTv>()),
-  );
-
+  // Bloc
+  
   locator.registerFactory(() => SearchBloc(searchMovies: locator<SearchMovies>()),);
   locator.registerFactory(() => SearchTvBloc(locator<SearchWatchlistTv>()),);
   locator.registerFactory(() => GetRecomedationDetailTvCubit(getTvSeriesRecomendation: locator()));
@@ -113,23 +57,7 @@ Future<void> init() async{
   locator.registerFactory(() => TvListPopularCubit(getPopularTv: locator()),);
   locator.registerFactory(() => TvListTopRatedCubit(getTopRatedTv: locator()),);
   locator.registerFactory(() => MovieDetailCubit(locator(), locator(), locator(), locator(), locator()));
-
-  locator.registerFactory(
-    () => TvSeriesDetailNotifier(
-        getMovieDetail: locator(),
-        getTvSeriesRecomendation: locator(),
-        saveWatchlistTv: locator(),
-        getWatchListStatus: locator(),
-        removeWatchlistTv: locator()),
-  );
-  locator.registerFactory(
-    () => WatchlistTvNotifier(
-        statusTv: locator(),
-        getWatchlistTv: locator(),
-        removeWatchlistTv: locator(),
-        saveWatchlistTv: locator()),
-  );
-  locator.registerFactory(() => TvSearchNotifier(searchWatchlistTv: locator()));
+  locator.registerFactory(() => ListMovieCubit(locator()),);
   locator.registerFactory( () => PopularMovieCubit(locator()) );
   locator.registerFactory( () => TopRatedMovieCubit(locator()) );
   locator.registerFactory( () => WatchlistMovieCubit(locator()) );
