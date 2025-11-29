@@ -3,6 +3,15 @@ workflows:
     name: Submission Expert Build
     instance_type: mac_mini_m2  # Sesuai screenshot Anda sebelumnya (M2)
     max_build_duration: 60
+
+    triggering:
+      events:
+        - push          # Build akan jalan saat ada push
+      branch_patterns:
+        - pattern: 'main' # Hanya memantau branch 'main'
+          include: true
+          source: true
+
     environment:
       flutter: stable
       xcode: latest
