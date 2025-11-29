@@ -1,0 +1,189 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/xuJ0F9RfKvVSJNDg2usurQ9WvY5.jpg",
+            "genre_ids": [
+                16,
+                10759,
+                10765
+            ],
+            "id": 46260,
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "ナルト",
+            "overview": "Naruto Uzumaki, a mischievous adolescent ninja, struggles as he searches for recognition and dreams of becoming the Hokage, the village's leader and strongest ninja.",
+            "popularity": 36.3678,
+            "poster_path": "/xppeysfvDKVx775MFuH8Z9BlpMk.jpg",
+            "first_air_date": "2002-10-03",
+            "name": "Naruto",
+            "vote_average": 8.363,
+            "vote_count": 5815
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/z0YhJvomqedHF85bplUJEotkN5l.jpg",
+            "genre_ids": [
+                16,
+                10759,
+                10765
+            ],
+            "id": 31910,
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "ナルト 疾風伝",
+            "overview": "After 2 and a half years Naruto finally returns to his village of Konoha, and sets about putting his ambitions to work. It will not be easy though as he has amassed a few more dangerous enemies, in the likes of the shinobi organization; Akatsuki.",
+            "popularity": 29.5308,
+            "poster_path": "/71mASgFgSiPl9QUexVH8BubU0lD.jpg",
+            "first_air_date": "2007-02-15",
+            "name": "Naruto Shippūden",
+            "vote_average": 8.533,
+            "vote_count": 8478
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/1836hXRxGLS53lImrl3IN002AbD.jpg",
+            "genre_ids": [
+                16,
+                35,
+                10759,
+                10765
+            ],
+            "id": 43168,
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "NARUTO SD ロック・リーの青春フルパワー忍伝",
+            "overview": "Welcome to the Hidden Leaf Village. The village where Uzumaki Naruto, star of the TV show \"Naruto\" makes his home. Every day, countless powerful ninjas carry out missions and train to hone their skills. Our main character is one of these powerful ninjas... but it's not Naruto! It's the ninja who can't use ninjutsu, Rock Lee!",
+            "popularity": 5.8021,
+            "poster_path": "/2OTMpFejspg3fYnRbiuVuLsZtaq.jpg",
+            "first_air_date": "2012-04-03",
+            "name": "NARUTO Spin-Off: Rock Lee & His Ninja Pals",
+            "vote_average": 6.3,
+            "vote_count": 49
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/4jDRuUk02VGAVMBJXabI9r0Cj6j.jpg",
+            "genre_ids": [
+                16,
+                10759,
+                35
+            ],
+            "id": 70881,
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "BORUTO-ボルト- NARUTO NEXT GENERATIONS",
+            "overview": "The life of the shinobi is beginning to change. Boruto Uzumaki, son of Seventh Hokage Naruto Uzumaki, has enrolled in the Ninja Academy to learn the ways of the ninja. Now, as a series of mysterious events unfolds, Boruto’s story is about to begin!",
+            "popularity": 4.8441,
+            "poster_path": "/e0B6i48kxdRkMcK4tR4YNfXGWOc.jpg",
+            "first_air_date": "2017-04-05",
+            "name": "Boruto: Naruto Next Generations",
+            "vote_average": 7.85,
+            "vote_count": 2455
+        },
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [],
+            "id": 245545,
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "『FLOW THE CARNIVAL 2023 〜NARUTO縛り〜』SPECIAL",
+            "overview": "Broadcasting the tour for the album \"FLOW THE COVER ~NARUTO Shibari~\", in which FLOW covered the theme song of the NARUTO series.\n\nIn addition to FLOW's covers of the theme songs of the NARUTO series, you can also listen to songs that FLOW has worked on in the past, making it a must-see for the full contents of \"NARUTO\"!",
+            "popularity": 0.1734,
+            "poster_path": null,
+            "first_air_date": "2024-02-07",
+            "name": "\"FLOW THE CARNIVAL 2023 ~NARUTO SHIBARI~\" SPECIAL",
+            "vote_average": 0.0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [
+                18,
+                10759
+            ],
+            "id": 86790,
+            "origin_country": [
+                "JP"
+            ],
+            "original_language": "ja",
+            "original_name": "鳴門秘帖",
+            "overview": "Norizuki Gennojo, a commander of the Shogunate’s troops, sets out on a journey to train in swordplay. In that time, Koka Yoami, the father of his betrothed Chie, receives a special mission and goes to Awa Tokushima to search for the secret records of Naruto in which a pledge to overthrow the shogunate is sealed with blood. He is never heard of again. 10 years later, Gennojo returns to Edo as a wandering monk and in despair about his swordsmanship. He is slashed by Sekiya Magobei but survives because of the quick wits of a female pickpocket Mikaeri Otsuna. Gennojo gets entangled in conflict surrounding the secret records of Naruto. He and Otsuna try to infiltrate Awa Tokushima in order to obtain the secret records and face continuous attacks by assassins on the way there.",
+            "popularity": 2.3522,
+            "poster_path": "/jd5BBhwCjbAD8lJKReaTWBLAbXC.jpg",
+            "first_air_date": "2018-04-20",
+            "name": "Naruto Hichou",
+            "vote_average": 7.5,
+            "vote_count": 2
+        },
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [],
+            "id": 285667,
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Naruto Highschool",
+            "overview": "Naruto Highschool - Following the adventures of Suvika and his bestfriend Naruto",
+            "popularity": 0.0546,
+            "poster_path": null,
+            "first_air_date": "2022-06-30",
+            "name": "Naruto Highschool",
+            "vote_average": 0.0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [],
+            "id": 301017,
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Naruto - The Ocean Cut",
+            "overview": "Naruto Uzumaki, a mischievous adolescent ninja, struggles as he searches for recognition and dreams of becoming the Hokage, the village's leader and strongest ninja.",
+            "popularity": 0.2843,
+            "poster_path": "/mkhzsUinS1Nc2PNE7csq6DuY2gm.jpg",
+            "first_air_date": "",
+            "name": "Naruto - The Ocean Cut",
+            "vote_average": 0.0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [],
+            "id": 300014,
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Naruto Ocean cut",
+            "overview": "Naruto: Ocean Cut is a fan edit of the original Naruto anime that removes all filler arcs, recap episodes, and unnecessary slow pacing, focusing entirely on the main storyline and character development.\n\nThis project is designed for fans who want to experience the story of Naruto Uzumaki, Sasuke Uchiha, and Sakura Haruno in a streamlined way, staying faithful to the manga canon.\n\nUnlike the original run of 220 episodes, Ocean Cut condenses the series into around 70–80 episodes, delivering only the essential arcs and battles without filler interruptions.",
+            "popularity": 0.0682,
+            "poster_path": null,
+            "first_air_date": "",
+            "name": "Naruto Ocean cut",
+            "vote_average": 0.0,
+            "vote_count": 0
+        }
+    ],
+    "total_pages": 1,
+    "total_results": 9
+}

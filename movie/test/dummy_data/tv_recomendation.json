@@ -1,0 +1,29 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/nV2vZlXsbU8cUdLAmTsPVGmySb9.jpg",
+            "id": 294867,
+            "name": "Dusk Beyond the End of the World",
+            "original_name": "永久のユウグレ",
+            "overview": "When tensions around AI spark civil unrest, Akira is caught in the crossfire when he protects his girlfriend from an assassin. Hundreds of years later, he awakens from cryogenic sleep to an unfamiliar world and bonds with the android Yuugure.",
+            "poster_path": "/xfCA7LKaIE6JbswEVUITSrl6FiH.jpg",
+            "media_type": "tv",
+            "original_language": "ja",
+            "genre_ids": [
+                16,
+                10765
+            ],
+            "popularity": 9.5446,
+            "first_air_date": "2025-10-03",
+            "vote_average": 8.375,
+            "vote_count": 8,
+            "origin_country": [
+                "JP"
+            ]
+        }
+    ],
+    "total_pages": 2,
+    "total_results": 40
+}
