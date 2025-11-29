@@ -1,0 +1,50 @@
+workflows:
+  my-workflow:
+    name: Submission Expert Build
+    instance_type: mac_mini_m2  # Sesuai screenshot Anda sebelumnya (M2)
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      # --- INI BAGIAN AGAR MUNCUL CENTANG "TESTING" ---
+      - name: Testing Modules
+        script: |
+          set -e
+          echo "Mencari paket modular..."
+          # Loop ke semua folder sub-modul (selain root)
+          find . -mindepth 2 -name "pubspec.yaml" -print0 | while IFS= read -r -d '' file; do
+            dir=$(dirname "$file")
+            echo "--------------------------------------"
+            echo "Testing package: $dir"
+            echo "--------------------------------------"
+            cd "$dir"
+            
+            # Pastikan dependencies terinstall
+            flutter pub get
+            
+            # Jalankan test
+            flutter test
+            
+            # Kembali ke root
+            cd - > /dev/null
+          done
+
+      # --- Build Android ---
+      - name: Build Android APK
+        script: |
+          flutter build apk --release
+
+      # --- Build iOS (Opsional, hapus jika tidak butuh) ---
+      - name: Build iOS
+        script: |
+          flutter build ios --release --no-codesign
+
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/ios/iphoneos/*.app
+    publishing:
+      email:
+        recipients:
+          - yasirkhoirul9@gmail.com # Email notifikasi
